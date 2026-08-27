@@ -1,6 +1,6 @@
 # Nahui Skills
 
-Nahui Skills is an independent educational project. It is not affiliated with or endorsed by the Instituto Politécnico Nacional.
+Beta en Vue 3 + Vite + TypeScript, instalada y bloqueada con pnpm. Proyecto educativo independiente, no afiliado ni respaldado por el IPN.
 
 ## Trademark notice
 
@@ -19,3 +19,27 @@ La licencia AGPL-3.0 se aplica únicamente al código fuente. No concede
 permiso para utilizar el nombre, logotipo, identidad gráfica o elementos
 de marca de Nahui Skills para presentar modificaciones o proyectos
 derivados como versiones oficiales.
+
+## Requisitos
+
+- Node.js 24.12+
+- pnpm 11
+
+## Uso
+
+```bash
+pnpm install --frozen-lockfile
+pnpm dev
+pnpm build
+```
+
+## Seguridad de dependencias
+
+- `packageManager` fija pnpm 11.22.0.
+- `pnpm-lock.yaml` debe guardarse en Git.
+- `minimumReleaseAge: 1440` retrasa paquetes recién publicados 24 horas.
+- `blockExoticSubdeps: true` bloquea fuentes transitivas exóticas.
+- `trustPolicy: no-downgrade` evita degradaciones en evidencia de confianza.
+
+Conserva el archivo `LICENSE` AGPL-3.0 del repositorio actual.
+
