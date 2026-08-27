@@ -1,4 +1,5 @@
 # Nahui Skills
+> Hotfix 0.7.4: corrige el contador de palabras, completa el respaldo local, muestra todo el banco de Writing/Speaking, reinicia la retroalimentación por sección y mejora el fallback offline de rutas.
 
 > Hotfix 0.7.3: corrige el desempaquetado de refs anidados en Ajustes y desregistra Service Workers durante desarrollo. Anteriormente, 0.7.1: corrige rutas directas `/practice/reading`, `/practice/listening`, `/practice/writing` y `/practice/speaking`, además de navegación atrás/adelante.
 
@@ -71,3 +72,11 @@ El micrófono requiere `localhost` o HTTPS.
 ## Licencia
 
 El código fuente se distribuye bajo GNU Affero General Public License v3. Conserva el archivo `LICENSE` y los avisos de marca al redistribuir o modificar el proyecto.
+
+## Validación de contenido
+
+```bash
+pnpm validate:content
+```
+
+Comprueba IDs duplicados, opciones y respuestas fuera de rango.
