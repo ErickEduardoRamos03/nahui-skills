@@ -1,0 +1,9 @@
+{
+  "name": "Nahui Skills",
+  "short_name": "Nahui",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#dffaff",
+  "theme_color": "#16b8dc",
+  "description": "Práctica local de inglés de cuatro habilidades."
+}

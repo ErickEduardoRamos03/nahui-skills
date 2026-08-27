@@ -1,11 +1,103 @@
 <script setup>
-import{computed,ref}from'vue';import{phraseBank}from'./data/phrases';import{useVoice}from'./composables/voice';import{useRecorder}from'./composables/recorder'
-const page=ref('home'),accent=ref('us'),topic=ref('all'),level=ref('all'),phraseIndex=ref(0),followup=ref('');const voice=useVoice(),rec=useRecorder();const prompts=['Could you introduce yourself and tell me about your studies?','Tell me about an achievement that required considerable effort.','Are online classes as effective as face-to-face classes?','If you could improve one aspect of education in your community, what would you change?','What will you be doing this time next year?','Do borrowed words enrich a language? Explain your answer.','Describe a problem you solved recently.','Would you rather work alone or as part of a team? Why?','How has technology changed the way students learn?','What advice would you give to your younger self?'];const promptIndex=ref(0)
-const filtered=computed(()=>phraseBank.filter(p=>(topic.value==='all'||p[0]===topic.value)&&(level.value==='all'||p[1]===level.value)));const current=computed(()=>filtered.value[phraseIndex.value%Math.max(filtered.value.length,1)]||phraseBank[0]);const topics=computed(()=>[...new Set(phraseBank.map(p=>p[0]))]);function nextPhrase(){phraseIndex.value=Math.floor(Math.random()*filtered.value.length)}function setAccent(a){accent.value=a;voice.chooseAccent(a==='gb'?'en-GB':'en-US')}function nextPrompt(){promptIndex.value=(promptIndex.value+1)%prompts.length;followup.value=''}function askFollowup(){const f=['Why do you think that?','Could you give me a specific example?','What is the strongest opposing argument?','Has your opinion changed over time?','How might this situation change in the future?'];followup.value=f[Math.floor(Math.random()*f.length)];voice.speak(followup.value,accent.value)}
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import ExamHub from './components/ExamHub.vue'
+import Explorer from './components/Explorer.vue'
+import Settings from './components/Settings.vue'
+import { useVoice } from './composables/useVoice'
+import { useLocal } from './composables/useLocal'
+
+const voice = useVoice()
+const settings = useLocal('nahui-settings', {
+  variant: 'us', practice: true, reducedMotion: false, highContrast: false
+})
+const classes = computed(() => ({
+  reduce: settings.value.reducedMotion,
+  contrast: settings.value.highContrast
+}))
+
+const route = ref({ page: 'home', skill: 'reading' })
+const validSkills = ['reading', 'listening', 'writing', 'speaking']
+
+function readRoute() {
+  const parts = location.pathname.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean)
+  if (parts[0] === 'practice') {
+    route.value = { page: 'exam', skill: validSkills.includes(parts[1]) ? parts[1] : 'reading' }
+  } else if (parts[0] === 'through-time') {
+    route.value = { page: 'explore', skill: 'reading' }
+  } else if (parts[0] === 'settings') {
+    route.value = { page: 'settings', skill: 'reading' }
+  } else {
+    route.value = { page: 'home', skill: 'reading' }
+  }
+}
+
+function go(page, skill = 'reading') {
+  const path = page === 'exam' ? `/practice/${skill}`
+    : page === 'explore' ? '/through-time'
+    : page === 'settings' ? '/settings'
+    : '/'
+  history.pushState({}, '', path)
+  readRoute()
+  window.scrollTo({ top: 0, behavior: settings.value.reducedMotion ? 'auto' : 'smooth' })
+}
+
+onMounted(() => {
+  readRoute()
+  addEventListener('popstate', readRoute)
+})
+onUnmounted(() => removeEventListener('popstate', readRoute))
 </script>
-<template><header><button class="brand" @click="page='home'"><b>4</b>Nahui Skills <small>BETA 0.6</small></button><nav><button :class="{active:page==='home'}" @click="page='home'">Inicio</button><button :class="{active:page==='phrases'}" @click="page='phrases'">Frases</button><button :class="{active:page==='speaking'}" @click="page='speaking';rec.refresh()">Entrevista</button><button :class="{active:page==='audio'}" @click="page='audio'">Voces</button></nav></header><main>
-<section v-if="page==='home'" class="hero"><div class="wrap"><span class="badge">Audio mejorado</span><h1>Escucha voces reales.<br>Graba tu respuesta.</h1><p>Elige una voz inglesa instalada o usa Kokoro local como opción experimental.</p><div class="actions"><button class="cta lime" @click="page='audio'">Configurar voces</button><button class="cta white" @click="page='speaking';rec.refresh()">Probar micrófono</button></div></div><i class="bubble"></i></section><section v-if="page==='home'" class="wrap section"><div class="grid"><article class="tile"><h2>{{phraseBank.length}} frases modernas</h2><p>Temas cotidianos, estudio, tecnología, opinión y vocabulario B2 con AFI.</p><button class="cta" @click="page='phrases'">Aprender frases</button></article><article class="tile"><h2>Entrevista local</h2><p>Diagnóstico del micrófono, selección de dispositivo, reducción de ruido y grabación.</p><button class="cta" @click="page='speaking';rec.refresh()">Abrir entrevista</button></article></div></section>
-<section v-else-if="page==='audio'" class="wrap section"><span class="badge">Centro de voz</span><h1>Configurar pronunciación</h1><article class="tile exercise"><label>Motor <select v-model="voice.engine"><option value="browser">Voces instaladas, carga inmediata</option><option value="kokoro">Kokoro 82M local, experimental</option></select></label><p v-if="voice.engine==='kokoro'" class="notice">La primera reproducción descarga un modelo grande y puede tardar. Después queda en la caché del navegador. Si falla, Nahui Skills vuelve a la voz instalada.</p><div class="actions"><button class="cta" @click="setAccent('us')">🇺🇸 Buscar mejor voz en-US</button><button class="cta" @click="setAccent('gb')">🇬🇧 Buscar mejor voz en-GB</button><button class="cta white" @click="voice.loadVoices">Actualizar lista</button></div><label v-if="voice.engine==='browser'">Voz exacta <select v-model="voice.voiceURI"><option v-for="v in voice.englishVoices" :value="v.voiceURI">{{v.name}} · {{v.lang}}{{v.default?' · predeterminada':''}}</option></select></label><p>Voces inglesas detectadas: <b>{{voice.englishVoices.length}}</b></p><button class="cta lime" :disabled="voice.loading" @click="voice.speak('Although the exam is challenging, careful practice can make a significant difference.',accent)">▶ Probar voz</button><p>{{voice.status}}</p></article></section>
-<section v-else-if="page==='phrases'" class="wrap section"><span class="badge">Phrase Lab</span><h1>Frases modernas</h1><article class="tile exercise"><div class="toolbar"><label>Tema <select v-model="topic" @change="phraseIndex=0"><option value="all">Todos</option><option v-for="t in topics" :value="t">{{t}}</option></select></label><label>Nivel <select v-model="level" @change="phraseIndex=0"><option value="all">Todos</option><option>A2</option><option>B1</option><option>B2</option></select></label><button class="cta white" @click="nextPhrase">Otra frase</button></div><span class="badge">{{current[0]}} · {{current[1]}}</span><h2>{{current[2]}}</h2><code>{{current[3]}}</code><div class="actions"><button class="cta" @click="voice.speak(current[2],accent)">▶ Escuchar</button><button class="cta white" @click="setAccent(accent==='us'?'gb':'us')">Cambiar a {{accent==='us'?'en-GB':'en-US'}}</button></div><p>{{voice.status}}</p></article></section>
-<section v-else class="wrap section"><span class="badge">Speaking Lab</span><h1>Entrevista</h1><article class="tile exercise"><div class="notice"><b>Contexto seguro:</b> {{rec.secure?'Sí':'No'}} · <b>MediaRecorder:</b> {{rec.supported?'Disponible':'No disponible'}} · <b>Estado:</b> {{rec.status}}</div><div class="toolbar"><label>Micrófono <select v-model="rec.deviceId"><option value="">Predeterminado</option><option v-for="d in rec.devices" :value="d.deviceId">{{d.label||'Micrófono sin nombre'}}</option></select></label><button class="cta white" @click="rec.test">Probar y solicitar permiso</button></div><p v-if="rec.error" class="bad">{{rec.error}}</p><h2>{{prompts[promptIndex]}}</h2><div class="actions"><button class="cta" @click="voice.speak(prompts[promptIndex],accent)">🔊 Escuchar pregunta</button><button v-if="!rec.recording" class="cta lime" @click="rec.start">● Grabar</button><button v-else class="cta danger" @click="rec.stop">■ Detener</button></div><div v-if="rec.recording" class="meter"><span :style="{width:Math.min(rec.level*2,100)+'%'}"></span></div><audio v-if="rec.audioUrl" :src="rec.audioUrl" controls></audio><div class="formula">Respuesta → razón → ejemplo → cierre</div><div class="actions"><button class="cta white" @click="askFollowup">Seguimiento aleatorio</button><button class="cta white" @click="nextPrompt">Siguiente pregunta</button></div><p v-if="followup"><b>{{followup}}</b></p></article></section>
-</main><footer>Kokoro es opcional y se ejecuta localmente. Las voces instaladas dependen del sistema. Proyecto independiente, AGPL-3.0.</footer></template>
+
+<template>
+  <div :class="classes">
+    <header class="topbar">
+      <button class="brand" @click="go('home')">
+        <span class="logo">4</span>
+        <span>Nahui Skills <small>BETA 0.7.1</small></span>
+      </button>
+      <nav aria-label="Principal">
+        <button :class="{ active: route.page === 'home' }" @click="go('home')">Inicio</button>
+        <button :class="{ active: route.page === 'exam' }" @click="go('exam', route.skill)">Simulador</button>
+        <button :class="{ active: route.page === 'explore' }" @click="go('explore')">Through Time</button>
+        <button :class="{ active: route.page === 'settings' }" @click="go('settings')">Ajustes</button>
+      </nav>
+    </header>
+
+    <main>
+      <template v-if="route.page === 'home'">
+        <section class="hero">
+          <div class="hero-inner">
+            <div>
+              <span class="pill">Sin cuenta · datos locales · BrE + AmE</span>
+              <h1>Practica el examen.<br><em>Explora el idioma.</em></h1>
+              <p>Reading, Listening, Writing y Speaking con una capa Frutiger Aero, comparación de variantes y viajes breves por la historia del inglés.</p>
+              <div class="hero-actions">
+                <button class="aero-button primary" @click="go('exam')">Abrir simulador</button>
+                <button class="aero-button light" @click="go('explore')">Viajar por el inglés</button>
+              </div>
+            </div>
+            <div class="world" aria-hidden="true"><span class="bubble b1"></span><span class="bubble b2"></span><div class="island">Aa</div></div>
+          </div>
+        </section>
+        <section class="home-grid">
+          <article class="feature"><span class="icon">✓</span><h2>Cuatro habilidades</h2><p>Práctica B2 con textos y reactivos originales, escritura autoguardada y entrevista grabable.</p></article>
+          <article class="feature"><span class="icon">US/UK</span><h2>Dos variantes claras</h2><p>Ortografía, vocabulario, AFI y voz etiquetados para evitar mezclas accidentales.</p></article>
+          <article class="feature"><span class="icon">⏳</span><h2>Historia sin tedio</h2><p>Frases modernas, viajes históricos y estados de evidencia para no presentar reconstrucciones como hechos.</p></article>
+          <article class="feature"><span class="icon">⌂</span><h2>Privado y local</h2><p>Preferencias, respuestas y borradores quedan en este navegador. Puedes exportar un respaldo JSON.</p></article>
+        </section>
+      </template>
+
+      <ExamHub v-if="route.page === 'exam'" :key="route.skill" :initial-skill="route.skill" :voice="voice" :settings="settings" />
+      <Explorer v-if="route.page === 'explore'" :voice="voice" :settings="settings" />
+      <Settings v-if="route.page === 'settings'" :settings="settings" :voice="voice" />
+    </main>
+
+    <footer><b>Nahui Skills</b> es un proyecto educativo independiente, no afiliado ni respaldado por el IPN. Código AGPL-3.0. <button @click="go('settings')">Privacidad local</button></footer>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <button @click="go('home')">⌂<small>Inicio</small></button>
+      <button @click="go('exam', route.skill)">✓<small>Examen</small></button>
+      <button @click="go('explore')">⏳<small>Historia</small></button>
+      <button @click="go('settings')">⚙<small>Ajustes</small></button>
+    </nav>
+  </div>
+</template>
