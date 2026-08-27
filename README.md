@@ -1,6 +1,6 @@
 # Nahui Skills
 
-> Hotfix 0.7.1: corrige rutas directas `/practice/reading`, `/practice/listening`, `/practice/writing` y `/practice/speaking`, además de navegación atrás/adelante.
+> Hotfix 0.7.3: corrige el desempaquetado de refs anidados en Ajustes y desregistra Service Workers durante desarrollo. Anteriormente, 0.7.1: corrige rutas directas `/practice/reading`, `/practice/listening`, `/practice/writing` y `/practice/speaking`, además de navegación atrás/adelante.
 
 Nahui Skills es un simulador educativo local de Reading, Listening, Writing y Speaking, construido con Vue 3 + Vite + JavaScript. Incluye comparación entre inglés estadounidense y británico, práctica de voz y micrófono, y una sección experimental de historia del inglés.
 
