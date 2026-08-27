@@ -53,7 +53,7 @@ onUnmounted(() => removeEventListener('popstate', readRoute))
     <header class="topbar">
       <button class="brand" @click="go('home')">
         <span class="logo">4</span>
-        <span>Nahui Skills <small>BETA 0.7.1</small></span>
+        <span>Nahui Skills <small>BETA 0.7.2</small></span>
       </button>
       <nav aria-label="Principal">
         <button :class="{ active: route.page === 'home' }" @click="go('home')">Inicio</button>
