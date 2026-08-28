@@ -7,6 +7,28 @@ const SAMPLE = {
   'en-GB': 'I parked the car near the water fountain, and I will call you later.'
 }
 
+// Fuera del composable a propósito: si el utterance solo vive dentro de
+// speak(), Chrome/Brave lo pueden recolectar como basura antes de terminar
+// de hablar y el audio simplemente no suena, sin ningún error visible.
+let activeUtterance = null
+let keepAliveTimer = null
+
+function startKeepAlive() {
+  if (keepAliveTimer) return
+  // Chrome/Brave (mismo motor Chromium) "atoran" speechSynthesis si lleva
+  // ~15s hablando sin pausa. Pausar/reanudar cada 10s lo mantiene vivo.
+  keepAliveTimer = setInterval(() => {
+    if (window.speechSynthesis?.speaking) {
+      window.speechSynthesis.pause()
+      window.speechSynthesis.resume()
+    }
+  }, 10000)
+}
+function stopKeepAlive() {
+  clearInterval(keepAliveTimer)
+  keepAliveTimer = null
+}
+
 export function useVoice() {
   const voices = ref([])
   const usVoiceURI = ref(localStorage.getItem(US_KEY) || '')
@@ -23,6 +45,10 @@ export function useVoice() {
   function voiceScore(v, locale) {
     const name = `${v.name} ${v.voiceURI}`
     let score = 0
+    // Brave bloquea por defecto las voces "en línea" de Google (las manda
+    // por privacidad/Shields), así que ya no dependemos de eso para elegir
+    // una voz decente: seguimos premiándolas si existen, pero no son
+    // obligatorias para que algo suene.
     if (/Natural|Neural|Online/i.test(name)) score += 100
     if (/Aria|Jenny|Guy|Ava|Andrew|Emma|Brian|Sonia|Ryan|Libby|Thomas/i.test(name)) score += 60
     if (/Microsoft|Google|Apple/i.test(name)) score += 25
@@ -50,32 +76,60 @@ export function useVoice() {
     return locale.toLowerCase().startsWith('en-gb') ? selectedGB.value : selectedUS.value
   }
 
-  function speak(text, locale = 'en-US', rate = 0.9) {
-    error.value = ''
-    if (!('speechSynthesis' in window)) {
-      error.value = 'Síntesis de voz no disponible.'
-      return
-    }
-    load()
+  function speakNow(text, locale, rate) {
     const selected = selectedFor(locale)
+    // Ya NO bloqueamos si no hay una voz EXACTA guardada para ese locale:
+    // dejamos que el navegador use su voz por defecto vía utterance.lang.
+    // Esto es clave en Brave/Linux, donde a veces solo hay una voz local
+    // "genérica" y ni siquiera trae en-GB por separado.
     if (!selected) {
-      error.value = `No se encontró una voz ${locale}. Instala una voz de ese idioma en Windows o selecciónala en Ajustes.`
-      return
+      error.value = `No encontré una voz instalada para ${locale}; usando la voz por defecto del navegador.`
     }
-    window.speechSynthesis.cancel()
     const utterance = new SpeechSynthesisUtterance(text)
-    utterance.voice = selected
-    utterance.lang = selected.lang || locale
+    if (selected) utterance.voice = selected
+    utterance.lang = selected?.lang || locale
     utterance.rate = rate
     utterance.pitch = locale.toLowerCase().startsWith('en-gb') ? 1.02 : 0.98
     utterance.volume = 1
-    status.value = `Reproduciendo ${locale}: ${selected.name} (${selected.lang})`
+
+    status.value = `Reproduciendo ${locale}: ${selected ? `${selected.name} (${selected.lang})` : 'voz por defecto'}`
+
     utterance.onerror = event => {
       error.value = `No se pudo reproducir la voz: ${event.error || 'error desconocido'}`
       status.value = ''
+      activeUtterance = null
+      stopKeepAlive()
     }
-    utterance.onend = () => { status.value = '' }
+    utterance.onend = () => {
+      status.value = ''
+      activeUtterance = null
+      stopKeepAlive()
+    }
+
+    // Referencia viva fuera del scope de la función: evita el GC prematuro
+    // del utterance en Chrome/Brave (motor Chromium compartido).
+    activeUtterance = utterance
     window.speechSynthesis.speak(utterance)
+    startKeepAlive()
+  }
+
+  function speak(text, locale = 'en-US', rate = 0.9) {
+    error.value = ''
+    if (!('speechSynthesis' in window)) {
+      error.value = 'Síntesis de voz no disponible en este navegador.'
+      return
+    }
+    load()
+    const wasBusy = window.speechSynthesis.speaking || window.speechSynthesis.pending
+    window.speechSynthesis.cancel()
+    // cancel() no es instantáneo puertas adentro: si había algo sonando,
+    // esperamos un tick antes de mandar el nuevo utterance o el motor
+    // (Chrome y Brave por igual) se lo puede comer en silencio.
+    if (wasBusy) {
+      setTimeout(() => speakNow(text, locale, rate), 60)
+    } else {
+      speakNow(text, locale, rate)
+    }
   }
 
   function preview(locale) {
@@ -93,12 +147,15 @@ export function useVoice() {
   onMounted(() => {
     load()
     window.speechSynthesis?.addEventListener?.('voiceschanged', load)
-    setTimeout(load, 300)
-    setTimeout(load, 1200)
+    // Brave suele tardar más que Chrome en poblar getVoices() (Shields
+    // añade una capa extra antes de exponer la lista), así que reintentamos
+    // en una escalera más larga en vez de solo dos intentos rápidos.
+    ;[300, 1000, 2000, 4000].forEach(delay => setTimeout(load, delay))
   })
   onUnmounted(() => {
     window.speechSynthesis?.cancel?.()
     window.speechSynthesis?.removeEventListener?.('voiceschanged', load)
+    stopKeepAlive()
   })
 
   return {
