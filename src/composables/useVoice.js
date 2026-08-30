@@ -20,6 +20,12 @@ const SAMPLE = {
 let activeUtterance = null
 let keepAliveTimer = null
 
+// Mismo motivo que activeUtterance: un <audio> creado con `new Audio()`
+// que no se agrega al DOM y no vive en ningún lado más que dentro de
+// playAudio() puede ser recolectado por el GC a mitad de la reproducción
+// (Chrome/Brave). Por eso lo guardamos aquí afuera, igual que el utterance.
+let activeAudio = null
+
 function startKeepAlive() {
   if (keepAliveTimer) return
   // Chrome/Brave (mismo motor Chromium) "atoran" speechSynthesis si lleva
@@ -154,18 +160,33 @@ export function useVoice() {
     error.value = ''
     const suffix = locale.toLowerCase().startsWith('en-gb') ? 'gb' : 'us'
     const src = `/audio/${id}-${suffix}.mp3`
+
+    // Si ya había un audio pregrabado sonando, lo detenemos y soltamos la
+    // referencia anterior antes de arrancar el nuevo.
+    if (activeAudio) {
+      activeAudio.pause()
+      activeAudio.onended = null
+      activeAudio.onerror = null
+      activeAudio = null
+    }
+
     const audio = new Audio(src)
+    // Referencia viva fuera del scope de la función: evita el GC prematuro
+    // del <audio> en Chrome/Brave, igual que hacemos con activeUtterance.
+    activeAudio = audio
 
     status.value = `Reproduciendo ${locale}: audio pregrabado`
-    audio.onended = () => { status.value = '' }
+    audio.onended = () => { status.value = ''; activeAudio = null }
     audio.onerror = () => {
       // No existe el archivo (404) u otro problema de reproducción:
       // nos vamos al plan B con síntesis en vivo, sin molestar al usuario.
       status.value = ''
+      activeAudio = null
       if (fallbackText) speak(fallbackText, locale, rate)
     }
     audio.play().catch(() => {
       status.value = ''
+      activeAudio = null
       if (fallbackText) speak(fallbackText, locale, rate)
     })
   }
