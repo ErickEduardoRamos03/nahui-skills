@@ -9,6 +9,10 @@ const filter = ref('all')
 const items = computed(() => phraseJourneys.filter(p => filter.value === 'all' || p.topic === filter.value))
 const current = computed(() => items.value[index.value % items.value.length] || phraseJourneys[0])
 function next() { index.value = (index.value + 1) % items.value.length }
+function playJourney(variant) {
+  const locale = variant === 'gb' ? 'en-GB' : 'en-US'
+  voice.value.playAudio(current.value.id, locale, current.value[variant].text)
+}
 </script>
 
 <template>
@@ -34,14 +38,14 @@ function next() { index.value = (index.value + 1) % items.value.length }
         <h3>American English</h3>
         <p class="big">{{current.us.text}}</p>
         <code>{{current.us.ipa}}</code>
-        <button class="aero-button" @click="voice.speak(current.us.text,'en-US')">Escuchar en-US</button>
+        <button class="aero-button" @click="playJourney('us')">Escuchar en-US</button>
       </div>
       <div class="variant gb">
         <div class="flag">UK</div>
         <h3>British English</h3>
         <p class="big">{{current.gb.text}}</p>
         <code>{{current.gb.ipa}}</code>
-        <button class="aero-button" @click="voice.speak(current.gb.text,'en-GB')">Escuchar en-GB</button>
+        <button class="aero-button" @click="playJourney('gb')">Escuchar en-GB</button>
       </div>
     </div>
     <!-- Antes no había NADA de status/error aquí: si speak() fallaba

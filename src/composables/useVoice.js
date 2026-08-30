@@ -150,7 +150,9 @@ export function useVoice() {
   }
 
   // playAudio(id, locale, fallbackText, rate?)
-  // Intenta reproducir un mp3 pregrabado en /public/audio/<id>-<us|gb>.mp3
+  // Intenta reproducir un mp3 pregrabado de public/audio/<id>-<us|gb>.mp3.
+  // Vite publica esa carpeta bajo BASE_URL, no necesariamente en la raíz del
+  // dominio (por ejemplo, GitHub Pages sirve el proyecto bajo /nahui-skills/).
   // (generado por scripts/generate_audio.py). Si no existe todavía —por
   // ejemplo, agregaste contenido nuevo y aún no corriste el script—, cae
   // de regreso a speechSynthesis con fallbackText para que nunca se quede
@@ -159,7 +161,7 @@ export function useVoice() {
   function playAudio(id, locale, fallbackText, rate = 0.9) {
     error.value = ''
     const suffix = locale.toLowerCase().startsWith('en-gb') ? 'gb' : 'us'
-    const src = `/audio/${id}-${suffix}.mp3`
+    const src = `${import.meta.env.BASE_URL}audio/${encodeURIComponent(id)}-${suffix}.mp3`
 
     // Si ya había un audio pregrabado sonando, lo detenemos y soltamos la
     // referencia anterior antes de arrancar el nuevo.

@@ -3,6 +3,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 import ExamHub from './components/ExamHub.vue'
 import Explorer from './components/Explorer.vue'
 import Settings from './components/Settings.vue'
+import Vocabulary from './components/Vocabulary.vue'
 import { useVoice } from './composables/useVoice'
 import { useLocal } from './composables/useLocal'
 
@@ -24,6 +25,8 @@ function readRoute() {
     route.value = { page: 'exam', skill: validSkills.includes(parts[1]) ? parts[1] : 'reading' }
   } else if (parts[0] === 'through-time') {
     route.value = { page: 'explore', skill: 'reading' }
+  } else if (parts[0] === 'vocabulario') {
+    route.value = { page: 'vocabulary', skill: 'reading' }
   } else if (parts[0] === 'settings') {
     route.value = { page: 'settings', skill: 'reading' }
   } else {
@@ -34,6 +37,7 @@ function readRoute() {
 function go(page, skill = 'reading') {
   const path = page === 'exam' ? `/practice/${skill}`
     : page === 'explore' ? '/through-time'
+    : page === 'vocabulary' ? '/vocabulario'
     : page === 'settings' ? '/settings'
     : '/'
   history.pushState({}, '', path)
@@ -53,12 +57,13 @@ onUnmounted(() => removeEventListener('popstate', readRoute))
     <header class="topbar">
       <button class="brand" @click="go('home')">
         <span class="logo">4</span>
-        <span>Nahui Skills <small>BETA 0.7.4</small></span>
+        <span>Nahui Skills <small>BETA 0.7.5</small></span>
       </button>
       <nav aria-label="Principal">
         <button :class="{ active: route.page === 'home' }" @click="go('home')">Inicio</button>
         <button :class="{ active: route.page === 'exam' }" @click="go('exam', route.skill)">Simulador</button>
         <button :class="{ active: route.page === 'explore' }" @click="go('explore')">Through Time</button>
+        <button :class="{ active: route.page === 'vocabulary' }" @click="go('vocabulary')">Vocabulario</button>
         <button :class="{ active: route.page === 'settings' }" @click="go('settings')">Ajustes</button>
       </nav>
     </header>
@@ -74,13 +79,14 @@ onUnmounted(() => removeEventListener('popstate', readRoute))
               <div class="hero-actions">
                 <button class="aero-button primary" @click="go('exam')">Abrir simulador</button>
                 <button class="aero-button light" @click="go('explore')">Viajar por el inglés</button>
+                <button class="aero-button light" @click="go('vocabulary')">Repasar vocabulario</button>
               </div>
             </div>
             <div class="world" aria-hidden="true"><span class="bubble b1"></span><span class="bubble b2"></span><div class="island">Aa</div></div>
           </div>
         </section>
         <section class="home-grid">
-          <article class="feature"><span class="icon">✓</span><h2>Cuatro habilidades</h2><p>Práctica B2 con textos y reactivos originales, escritura autoguardada y entrevista grabable.</p></article>
+          <article class="feature"><span class="icon">✓</span><h2>Cuatro habilidades</h2><p>Práctica B2 con textos y reactivos originales, escritura autoguardada y práctica oral guiada.</p></article>
           <article class="feature"><span class="icon">US/UK</span><h2>Dos variantes claras</h2><p>Ortografía, vocabulario, AFI y voz etiquetados para evitar mezclas accidentales.</p></article>
           <article class="feature"><span class="icon">⏳</span><h2>Historia sin tedio</h2><p>Frases modernas, viajes históricos y estados de evidencia para no presentar reconstrucciones como hechos.</p></article>
           <article class="feature"><span class="icon">⌂</span><h2>Privado y local</h2><p>Preferencias, respuestas y borradores quedan en este navegador. Puedes exportar un respaldo JSON.</p></article>
@@ -89,6 +95,7 @@ onUnmounted(() => removeEventListener('popstate', readRoute))
 
       <ExamHub v-if="route.page === 'exam'" :key="route.skill" :initial-skill="route.skill" :voice="voice" :settings="settings" />
       <Explorer v-if="route.page === 'explore'" :voice="voice" :settings="settings" />
+      <Vocabulary v-if="route.page === 'vocabulary'" />
       <Settings v-if="route.page === 'settings'" :settings="settings" :voice="voice" />
     </main>
 
@@ -97,6 +104,7 @@ onUnmounted(() => removeEventListener('popstate', readRoute))
       <button @click="go('home')">⌂<small>Inicio</small></button>
       <button @click="go('exam', route.skill)">✓<small>Examen</small></button>
       <button @click="go('explore')">⏳<small>Historia</small></button>
+      <button @click="go('vocabulary')">Aa<small>Vocabulario</small></button>
       <button @click="go('settings')">⚙<small>Ajustes</small></button>
     </nav>
   </div>

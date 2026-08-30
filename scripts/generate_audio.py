@@ -69,7 +69,10 @@ async def main() -> None:
     pending = []
     for entry in corpus:
         out_path = OUT_DIR / f"{entry['id']}.mp3"
-        if not out_path.exists():
+        # Una descarga interrumpida puede dejar un archivo vacío. No debe
+        # contarse como audio generado, pues el frontend intentaría
+        # reproducirlo en lugar de usar el respaldo de voz.
+        if not out_path.exists() or out_path.stat().st_size == 0:
             pending.append(entry)
 
     if not pending:
@@ -85,6 +88,11 @@ async def main() -> None:
             await synthesize(entry["text"], entry["locale"], out_path)
         except Exception as exc:  # noqa: BLE001
             print(f"    ERROR generando {entry['id']}: {exc}")
+            # edge-tts puede crear el archivo antes de que falle la red.
+            # Lo eliminamos si quedó vacío para que el próximo intento lo
+            # vuelva a generar.
+            if out_path.exists() and out_path.stat().st_size == 0:
+                out_path.unlink()
 
     print("Listo.")
 

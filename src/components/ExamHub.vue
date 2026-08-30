@@ -2,7 +2,6 @@
 import { computed, ref, toRefs, watch } from 'vue'
 import { readingSections, listeningSections, writingPrompts, speakingPrompts } from '../data/content'
 import { useLocal } from '../composables/useLocal'
-import { useRecorder } from '../composables/useRecorder'
 
 const props = defineProps({ initialSkill: { type:String, default:'reading' }, voice:Object, settings:Object })
 const { voice, settings } = toRefs(props)
@@ -13,7 +12,6 @@ const submitted = ref(false)
 const sectionIndex = ref(0)
 const answers = useLocal('nahui-exam-answers', {})
 const writing = useLocal('nahui-writing', {})
-const recorder = useRecorder()
 
 const pools = { reading:readingSections, listening:listeningSections, writing:writingPrompts, speaking:speakingPrompts }
 const filtered = computed(() => pools[skill.value].filter(item => item.level === level.value))
@@ -113,15 +111,12 @@ watch([skill,level], () => { sectionIndex.value=0; started.value=false; submitte
     </article>
 
     <div v-else class="speaking">
-      <article class="notice"><span class="tag">{{current.level}}</span><h2>{{current.prompt}}</h2><p>Plan briefly, then record a 60–90 second response.</p></article>
-      <article class="recorder">
-        <p><b>{{recorder.status}}</b> · {{recorder.elapsed}} seconds</p>
-        <div class="meter"><span :style="{width:`${recorder.level}%`}"></span></div>
-        <button class="aero-button" @click="recorder.test">Test microphone</button>
-        <button v-if="!recorder.recording" class="aero-button primary" @click="recorder.start">Record</button>
-        <button v-else class="aero-button danger" @click="recorder.stop">Stop</button>
-        <audio v-if="recorder.audioUrl" :src="recorder.audioUrl" controls></audio>
-        <p v-if="recorder.error" class="error">{{recorder.error}}</p>
+      <article class="notice"><span class="tag">{{current.level}}</span><h2>{{current.prompt}}</h2><p>Plan your answer, then practise it aloud for 60–90 seconds. Focus on clear organisation, examples, and pronunciation.</p></article>
+      <article class="checklist">
+        <h3>Self-check</h3>
+        <label><input type="checkbox"> I answered every part of the prompt.</label>
+        <label><input type="checkbox"> I used a reason and an example.</label>
+        <label><input type="checkbox"> I used linking words to organise my ideas.</label>
       </article>
     </div>
   </template>

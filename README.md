@@ -3,7 +3,7 @@
 
 > Hotfix 0.7.3: corrige el desempaquetado de refs anidados en Ajustes y desregistra Service Workers durante desarrollo. Anteriormente, 0.7.1: corrige rutas directas `/practice/reading`, `/practice/listening`, `/practice/writing` y `/practice/speaking`, además de navegación atrás/adelante.
 
-Nahui Skills es un simulador educativo local de Reading, Listening, Writing y Speaking, construido con Vue 3 + Vite + JavaScript. Incluye comparación entre inglés estadounidense y británico, práctica de voz y micrófono, y una sección experimental de historia del inglés.
+Nahui Skills es un simulador educativo local de Reading, Listening, Writing y Speaking, construido con Vue 3 + Vite + JavaScript. Incluye comparación entre inglés estadounidense y británico, práctica de voz, vocabulario universitario y una sección experimental de historia del inglés.
 
 Proyecto educativo independiente, no afiliado ni respaldado por el IPN.
 
@@ -30,7 +30,7 @@ derivados como versiones oficiales.
 - Simulador B2 de cuatro habilidades con contenido original.
 - Reading y Listening con 2 secciones y 15 reactivos.
 - Writing con selección de tarea, autoguardado y contador de 120-140 palabras.
-- Speaking con voces en-US/en-GB, diagnóstico del micrófono y grabación local.
+- Speaking con práctica oral guiada y lista de autoevaluación.
 - English Through Time con frases modernas, comparación BrE/AmE y adaptaciones históricas etiquetadas por estado y confianza.
 - Preferencias, respuestas y borradores guardados en el navegador.
 - Exportación e importación de respaldo JSON.
@@ -67,7 +67,6 @@ pnpm build
 pnpm preview
 ```
 
-El micrófono requiere `localhost` o HTTPS.
 
 ## Licencia
 

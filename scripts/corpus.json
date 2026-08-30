@@ -198,5 +198,125 @@
     "id": "l20-gb",
     "locale": "en-GB",
     "text": "The dashboard originally displayed totals without dates, so users compared figures from different periods. We added date ranges, source notes, and a warning when data were incomplete. The totals did not change, but their meaning became clearer."
+  },
+  {
+    "id": "p1-us",
+    "locale": "en-US",
+    "text": "I forgot my password again."
+  },
+  {
+    "id": "p1-gb",
+    "locale": "en-GB",
+    "text": "I forgot my password again."
+  },
+  {
+    "id": "p2-us",
+    "locale": "en-US",
+    "text": "I’ll be downtown on the weekend."
+  },
+  {
+    "id": "p2-gb",
+    "locale": "en-GB",
+    "text": "I’ll be in the city centre at the weekend."
+  },
+  {
+    "id": "p3-us",
+    "locale": "en-US",
+    "text": "I live in an apartment near the elevator."
+  },
+  {
+    "id": "p3-gb",
+    "locale": "en-GB",
+    "text": "I live in a flat near the lift."
+  },
+  {
+    "id": "p4-us",
+    "locale": "en-US",
+    "text": "We waited in line to buy tickets."
+  },
+  {
+    "id": "p4-gb",
+    "locale": "en-GB",
+    "text": "We waited in the queue to buy tickets."
+  },
+  {
+    "id": "p5-us",
+    "locale": "en-US",
+    "text": "The fries were too salty."
+  },
+  {
+    "id": "p5-gb",
+    "locale": "en-GB",
+    "text": "The chips were too salty."
+  },
+  {
+    "id": "p6-us",
+    "locale": "en-US",
+    "text": "I turned in the assignment on Friday."
+  },
+  {
+    "id": "p6-gb",
+    "locale": "en-GB",
+    "text": "I handed in the assignment on Friday."
+  },
+  {
+    "id": "p7-us",
+    "locale": "en-US",
+    "text": "Although the exam is challenging, careful practice can make a difference."
+  },
+  {
+    "id": "p7-gb",
+    "locale": "en-GB",
+    "text": "Although the exam is challenging, careful practice can make a difference."
+  },
+  {
+    "id": "p8-us",
+    "locale": "en-US",
+    "text": "The app still requires human verification."
+  },
+  {
+    "id": "p8-gb",
+    "locale": "en-GB",
+    "text": "The app still requires human verification."
+  },
+  {
+    "id": "p9-us",
+    "locale": "en-US",
+    "text": "The meeting was canceled, but the deadline did not change."
+  },
+  {
+    "id": "p9-gb",
+    "locale": "en-GB",
+    "text": "The meeting was cancelled, but the deadline did not change."
+  },
+  {
+    "id": "p10-us",
+    "locale": "en-US",
+    "text": "We need a comparison before interpreting the figure."
+  },
+  {
+    "id": "p10-gb",
+    "locale": "en-GB",
+    "text": "We need a comparison before interpreting the figure."
+  },
+  {
+    "id": "p11-us",
+    "locale": "en-US",
+    "text": "The sidewalk will be closed from Monday through Wednesday."
+  },
+  {
+    "id": "p11-gb",
+    "locale": "en-GB",
+    "text": "The pavement will be closed from Monday to Wednesday."
+  },
+  {
+    "id": "p12-us",
+    "locale": "en-US",
+    "text": "The new report is clearer and less redundant."
+  },
+  {
+    "id": "p12-gb",
+    "locale": "en-GB",
+    "text": "The new report is clearer and less redundant."
   }
 ]

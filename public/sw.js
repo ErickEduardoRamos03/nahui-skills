@@ -1,4 +1,4 @@
-const CACHE = 'nahui-v0.7.4'
+const CACHE = 'nahui-v0.7.5'
 const CORE = ['/', '/index.html', '/manifest.webmanifest']
 
 self.addEventListener('install', event => {

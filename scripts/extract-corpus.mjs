@@ -17,7 +17,7 @@
 import { writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { listeningSections } from '../src/data/content.js'
+import { listeningSections, phraseJourneys } from '../src/data/content.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUT_PATH = join(__dirname, 'corpus.json')
@@ -41,9 +41,21 @@ for (const section of listeningSections) {
   }
 }
 
+for (const journey of phraseJourneys) {
+  if (!journey.id) { warnings.push('Phrase journey sin id, se omite.'); continue }
+  for (const { suffix, locale } of LOCALES) {
+    const text = journey[suffix]?.text
+    if (!text || !text.trim()) {
+      warnings.push(`${journey.id}-${suffix}: no tiene texto, se omite (no habrá audio pregrabado).`)
+      continue
+    }
+    corpus.push({ id: `${journey.id}-${suffix}`, locale, text })
+  }
+}
+
 writeFileSync(OUT_PATH, JSON.stringify(corpus, null, 2) + '\n', 'utf-8')
 
-console.log(`corpus.json generado con ${corpus.length} entradas (${listeningSections.length} secciones × 2 variantes).`)
+console.log(`corpus.json generado con ${corpus.length} entradas (${listeningSections.length} listenings y ${phraseJourneys.length} phrase journeys × 2 variantes).`)
 if (warnings.length) {
   console.log('\nAvisos:')
   for (const w of warnings) console.log(`  - ${w}`)
