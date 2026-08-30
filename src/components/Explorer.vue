@@ -49,9 +49,9 @@ function next() { index.value = (index.value + 1) % items.value.length }
     <p class="voice-status" aria-live="polite">{{ voice.status.value }}</p>
     <p v-if="voice.error.value" class="error">{{ voice.error.value }}</p>
     <p class="note">{{current.note}}</p>
-    <div v-if="current.history" class="timeline">
+    <div v-if="current.history?.stages?.length" class="timeline">
       <h3>Viaje histórico</h3>
-      <article v-for="(h,i) in current.history" :key="`${h.period}-${h.date}-${i}`" class="time-stop">
+      <article v-for="(h,i) in current.history.stages" :key="`${h.period}-${h.date}-${i}`" class="time-stop">
         <span>{{h.date}}</span>
         <div>
           <b>{{h.period}}</b>

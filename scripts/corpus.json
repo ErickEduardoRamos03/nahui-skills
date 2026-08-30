@@ -1,0 +1,202 @@
+[
+  {
+    "id": "l1-us",
+    "locale": "en-US",
+    "text": "The second floor will close at six for electrical maintenance. The ground-floor study area will remain open until nine, but its computers are reserved from seven to eight. Use the printers beside the entrance before five thirty. Books may be returned outside until midnight."
+  },
+  {
+    "id": "l1-gb",
+    "locale": "en-GB",
+    "text": "The second floor will close at six for electrical maintenance. The ground-floor study area will remain open until nine, but its computers are reserved from seven to eight. Use the printers beside the entrance before five thirty. Books may be returned outside until midnight."
+  },
+  {
+    "id": "l2-us",
+    "locale": "en-US",
+    "text": "Saturday’s park cleanup will begin at nine instead of eight because rain is expected. Meet beside the north gate. Gloves and trash bags will be provided, but bring a refillable water bottle. If rain continues, check the group message before leaving home."
+  },
+  {
+    "id": "l2-gb",
+    "locale": "en-GB",
+    "text": "Saturday’s park cleanup will begin at nine instead of eight because rain is expected. Meet beside the north gate. Gloves and trash bags will be provided, but bring a refillable water bottle. If rain continues, check the group message before leaving home."
+  },
+  {
+    "id": "l3-us",
+    "locale": "en-US",
+    "text": "Free bicycle safety checks are available Tuesday and Thursday afternoon. A mechanic will inspect brakes, tires, and lights, but major repairs are not included. Reserve a fifteen-minute appointment online and bring a student ID."
+  },
+  {
+    "id": "l3-gb",
+    "locale": "en-GB",
+    "text": "Free bicycle safety checks are available Tuesday and Thursday afternoon. A mechanic will inspect brakes, tires, and lights, but major repairs are not included. Reserve a fifteen-minute appointment online and bring a student ID."
+  },
+  {
+    "id": "l4-us",
+    "locale": "en-US",
+    "text": "Today’s conversation club has moved from Room 204 to the media center because the projector in 204 is not working. The meeting still begins at four. Bring the article sent by email, but do not print it because tablets will be available."
+  },
+  {
+    "id": "l4-gb",
+    "locale": "en-GB",
+    "text": "Today’s conversation club has moved from Room 204 to the media center because the projector in 204 is not working. The meeting still begins at four. Bring the article sent by email, but do not print it because tablets will be available."
+  },
+  {
+    "id": "l5-us",
+    "locale": "en-US",
+    "text": "A package addressed to you arrived at the residence office this morning. Bring a photo ID before seven this evening. If you cannot come today, the office reopens at ten tomorrow. Packages are kept for five working days."
+  },
+  {
+    "id": "l5-gb",
+    "locale": "en-GB",
+    "text": "A package addressed to you arrived at the residence office this morning. Bring a photo ID before seven this evening. If you cannot come today, the office reopens at ten tomorrow. Packages are kept for five working days."
+  },
+  {
+    "id": "l6-us",
+    "locale": "en-US",
+    "text": "The farmers market will use the east parking lot this Sunday because a concert is scheduled in the main square. Buses will stop one block away. Most sellers accept cards, but bring cash for the bread stand."
+  },
+  {
+    "id": "l6-gb",
+    "locale": "en-GB",
+    "text": "The farmers market will use the east parking lot this Sunday because a concert is scheduled in the main square. Buses will stop one block away. Most sellers accept cards, but bring cash for the bread stand."
+  },
+  {
+    "id": "l7-us",
+    "locale": "en-US",
+    "text": "Our math study group will meet for forty-five minutes after class. Please complete questions one through six before arriving. We will compare methods, not simply copy answers. Nora will bring graph paper, and I will upload the final notes."
+  },
+  {
+    "id": "l7-gb",
+    "locale": "en-GB",
+    "text": "Our math study group will meet for forty-five minutes after class. Please complete questions one through six before arriving. We will compare methods, not simply copy answers. Nora will bring graph paper, and I will upload the final notes."
+  },
+  {
+    "id": "l8-us",
+    "locale": "en-US",
+    "text": "The history tour begins at eleven near the ticket desk. The elevator is being repaired, so the group will use a ground-floor route. The tour is free with admission and lasts about fifty minutes."
+  },
+  {
+    "id": "l8-gb",
+    "locale": "en-GB",
+    "text": "The history tour begins at eleven near the ticket desk. The elevator is being repaired, so the group will use a ground-floor route. The tour is free with admission and lasts about fifty minutes."
+  },
+  {
+    "id": "l9-us",
+    "locale": "en-US",
+    "text": "New cafe volunteers should arrive at eight thirty on Monday. Wear closed shoes and tie back long hair. The first hour covers safety; customer service practice begins after a short break. Breakfast will not be provided."
+  },
+  {
+    "id": "l9-gb",
+    "locale": "en-GB",
+    "text": "New cafe volunteers should arrive at eight thirty on Monday. Wear closed shoes and tie back long hair. The first hour covers safety; customer service practice begins after a short break. Breakfast will not be provided."
+  },
+  {
+    "id": "l10-us",
+    "locale": "en-US",
+    "text": "Campus internet may be unavailable between midnight and two on Wednesday. Save cloud documents before midnight and avoid scheduling online exams during that period. The computer labs will remain open for offline work."
+  },
+  {
+    "id": "l10-gb",
+    "locale": "en-GB",
+    "text": "Campus internet may be unavailable between midnight and two on Wednesday. Save cloud documents before midnight and avoid scheduling online exams during that period. The computer labs will remain open for offline work."
+  },
+  {
+    "id": "l11-us",
+    "locale": "en-US",
+    "text": "Our class expected laboratories to waste the most electricity, but empty older classrooms had lights and projectors running. Our first measurements used different schedules, so the comparison was weak. In the second phase, every team observed rooms at the same times. Facilities staff later installed motion sensors in six rooms."
+  },
+  {
+    "id": "l11-gb",
+    "locale": "en-GB",
+    "text": "Our class expected laboratories to waste the most electricity, but empty older classrooms had lights and projectors running. Our first measurements used different schedules, so the comparison was weak. In the second phase, every team observed rooms at the same times. Facilities staff later installed motion sensors in six rooms."
+  },
+  {
+    "id": "l12-us",
+    "locale": "en-US",
+    "text": "Our first notice said access would be unavailable due to infrastructure operations. It failed to state where or for how long. We rewrote it to say that the east sidewalk would close Monday through Wednesday while crews replaced two pipes. The second version was longer but more useful."
+  },
+  {
+    "id": "l12-gb",
+    "locale": "en-GB",
+    "text": "Our first notice said access would be unavailable due to infrastructure operations. It failed to state where or for how long. We rewrote it to say that the east sidewalk would close Monday through Wednesday while crews replaced two pipes. The second version was longer but more useful."
+  },
+  {
+    "id": "l13-us",
+    "locale": "en-US",
+    "text": "I used twelve abbreviations in a volunteer guide because my team knew them. A new volunteer understood only four. I wrote out uncommon terms on first use and removed three abbreviations that saved almost no space. The guide became easier without losing accuracy."
+  },
+  {
+    "id": "l13-gb",
+    "locale": "en-GB",
+    "text": "I used twelve abbreviations in a volunteer guide because my team knew them. A new volunteer understood only four. I wrote out uncommon terms on first use and removed three abbreviations that saved almost no space. The guide became easier without losing accuracy."
+  },
+  {
+    "id": "l14-us",
+    "locale": "en-US",
+    "text": "A survey seemed to show strong support for evening workshops, but the link had mainly been shared in evening classes. We repeated the survey by email and at daytime events. The new results showed interest in both afternoon and evening sessions."
+  },
+  {
+    "id": "l14-gb",
+    "locale": "en-GB",
+    "text": "A survey seemed to show strong support for evening workshops, but the link had mainly been shared in evening classes. We repeated the survey by email and at daytime events. The new results showed interest in both afternoon and evening sessions."
+  },
+  {
+    "id": "l15-us",
+    "locale": "en-US",
+    "text": "Our air-quality sensor worked in the laboratory but failed near an open window. Instead of deleting the result, we tested humidity and airflow separately. High humidity caused the error. We added a protective cover and documented the operating limits."
+  },
+  {
+    "id": "l15-gb",
+    "locale": "en-GB",
+    "text": "Our air-quality sensor worked in the laboratory but failed near an open window. Instead of deleting the result, we tested humidity and airflow separately. High humidity caused the error. We added a protective cover and documented the operating limits."
+  },
+  {
+    "id": "l16-us",
+    "locale": "en-US",
+    "text": "Yesterday’s schedule listed Workshop B in Room 12. The correct location is Room 21. The start time, speaker, and registration link have not changed. We apologize and have updated both the website and the downloadable program."
+  },
+  {
+    "id": "l16-gb",
+    "locale": "en-GB",
+    "text": "Yesterday’s schedule listed Workshop B in Room 12. The correct location is Room 21. The start time, speaker, and registration link have not changed. We apologize and have updated both the website and the downloadable program."
+  },
+  {
+    "id": "l17-us",
+    "locale": "en-US",
+    "text": "During testing, users could identify open paths by color, but screen-reader users received no status information. We added text labels and patterns, then tested keyboard navigation. The change also helped people viewing the map in bright sunlight."
+  },
+  {
+    "id": "l17-gb",
+    "locale": "en-GB",
+    "text": "During testing, users could identify open paths by color, but screen-reader users received no status information. We added text labels and patterns, then tested keyboard navigation. The change also helped people viewing the map in bright sunlight."
+  },
+  {
+    "id": "l18-us",
+    "locale": "en-US",
+    "text": "The committee approved the pilot program but did not approve a permanent expansion. Rosa will collect feedback by October 10, and Malik will estimate costs. The committee will reconsider the proposal at its November meeting."
+  },
+  {
+    "id": "l18-gb",
+    "locale": "en-GB",
+    "text": "The committee approved the pilot program but did not approve a permanent expansion. Rosa will collect feedback by October 10, and Malik will estimate costs. The committee will reconsider the proposal at its November meeting."
+  },
+  {
+    "id": "l19-us",
+    "locale": "en-US",
+    "text": "I assumed professional writing required longer words. My supervisor returned a report and asked me to replace implement a reduction with reduce. The revision sounded less impressive to me, but colleagues understood it faster and asked fewer follow-up questions."
+  },
+  {
+    "id": "l19-gb",
+    "locale": "en-GB",
+    "text": "I assumed professional writing required longer words. My supervisor returned a report and asked me to replace implement a reduction with reduce. The revision sounded less impressive to me, but colleagues understood it faster and asked fewer follow-up questions."
+  },
+  {
+    "id": "l20-us",
+    "locale": "en-US",
+    "text": "The dashboard originally displayed totals without dates, so users compared figures from different periods. We added date ranges, source notes, and a warning when data were incomplete. The totals did not change, but their meaning became clearer."
+  },
+  {
+    "id": "l20-gb",
+    "locale": "en-GB",
+    "text": "The dashboard originally displayed totals without dates, so users compared figures from different periods. We added date ranges, source notes, and a warning when data were incomplete. The totals did not change, but their meaning became clearer."
+  }
+]
