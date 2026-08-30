@@ -1,162 +1,77 @@
-<script setup>
-import { computed, ref, watch, toRefs } from 'vue'
-import { readingSections, listeningSections, writingPrompts, speakingPrompts } from '../data/content'
-import { useLocal } from '../composables/useLocal'
-import { useRecorder } from '../composables/useRecorder'
+<!--
+  ============================================================
+  RUTA EN TU PROYECTO: src/components/Explorer.vue
+  (reemplaza el archivo que ya existe ahí)
 
-const props = defineProps({ voice: Object, settings: Object, initialSkill: { type: String, default: 'reading' } })
+  INSTALACIÓN: ninguna. No agrega dependencias nuevas.
+  Igual que ExamHub.vue, necesita el useVoice.js actualizado.
+  ============================================================
+-->
+<script setup>
+import { computed, ref, toRefs } from 'vue'
+import { phraseJourneys } from '../data/content'
+
+const props = defineProps({ voice: Object, settings: Object })
 const { voice, settings } = toRefs(props)
-const skill = ref(props.initialSkill)
-const started = ref(false)
-const section = ref(0)
-const answers = useLocal('nahui-exam-answers', {})
-const writing = useLocal('nahui-writing', {})
-const selectedPrompt = ref(0)
-const rec = useRecorder()
-const feedback = ref(false)
-const currentReading = computed(() => readingSections[section.value])
-const currentListening = computed(() => listeningSections[section.value])
-const segmenter = typeof Intl?.Segmenter === 'function' ? new Intl.Segmenter('en', { granularity: 'word' }) : null
-const wordCount = computed(() => {
-  const text = (writing.value[writingPrompts[selectedPrompt.value].id] || '').trim()
-  if (!text) return 0
-  if (segmenter) return [...segmenter.segment(text)].filter(item => item.isWordLike).length
-  return (text.match(/[A-Za-z]+(?:[’'-][A-Za-z]+)*/g) || []).length
-})
-function score(items, prefix) {
-  return items.reduce((n, _, i) => n + (answers.value[prefix + i] === _.answer ? 1 : 0), 0)
-}
-function reset() { started.value = false; feedback.value = false; section.value = 0 }
-function chooseSkill(s) {
-  skill.value = s
-  reset()
-  history.replaceState({}, '', `/practice/${s}`)
-  if (s === 'speaking') rec.refresh()
-}
-watch(section, () => { feedback.value = false })
-watch(() => props.initialSkill, s => {
-  if (['reading', 'listening', 'writing', 'speaking'].includes(s)) { skill.value = s; reset() }
-}, { immediate: true })
+const index = ref(0)
+const filter = ref('all')
+const items = computed(() => phraseJourneys.filter(p => filter.value === 'all' || p.topic === filter.value))
+const current = computed(() => items.value[index.value % items.value.length] || phraseJourneys[0])
+function next() { index.value = (index.value + 1) % items.value.length }
 </script>
 
 <template>
 <section class="panel">
-  <div class="eyebrow">Simulador B2 local</div>
-  <h1>Cuatro habilidades</h1>
-  <p class="lede">Práctica independiente inspirada en la estructura pública de la guía. El diagnóstico es orientativo, no oficial.</p>
-  <div class="skill-tabs" role="tablist">
-    <button v-for="s in ['reading','listening','writing','speaking']" :key="s" :class="{active:skill===s}" @click="chooseSkill(s)">{{s}}</button>
-  </div>
-
-  <div v-if="!started" class="start-card">
-    <h2>{{skill}}</h2>
-    <p v-if="skill==='reading'">2 textos, 15 reactivos. La guía orientativa contempla 30 minutos.</p>
-    <p v-else-if="skill==='listening'">2 audios sintetizados, 15 reactivos. En práctica puedes repetirlos.</p>
-    <p v-else-if="skill==='writing'">Elige una de dos tareas, escribe entre 120 y 140 palabras y usa la lista de revisión.</p>
-    <p v-else>Entrevista guiada, grabación local y autoevaluación de inteligibilidad y fluidez.</p>
-    <button class="aero-button primary" @click="started=true">Comenzar práctica</button>
-  </div>
-
-  <div v-else-if="skill==='reading'" class="exam-grid">
-    <article class="paper">
-      <div class="section-nav">
-        <button v-for="(_,i) in readingSections" :key="_.id" @click="section=i" :class="{active:section===i}">Texto {{i+1}}</button>
-      </div>
-      <h2>{{currentReading.title}}</h2>
-      <p class="reading-text">{{currentReading.text}}</p>
-    </article>
-    <aside class="questions">
-      <div v-for="(q,i) in currentReading.questions" :key="`${currentReading.id}-${i}`" class="question">
-        <b>{{i+1}}. {{q.q}}</b>
-        <label v-for="(o,j) in q.options" :key="j" :class="feedback?{'right':j===q.answer,'wrong':answers[currentReading.id+i]===j&&j!==q.answer}:{}">
-          <input type="radio" :name="currentReading.id+i" :value="j" v-model="answers[currentReading.id+i]"> {{o}}
-        </label>
-      </div>
-      <button class="aero-button" @click="feedback=!feedback">{{feedback?'Ocultar':'Revisar'}} respuestas</button>
-      <p v-if="feedback"><b>Resultado de esta sección: {{score(currentReading.questions,currentReading.id)}} / {{currentReading.questions.length}}</b></p>
-    </aside>
-  </div>
-
-  <div v-else-if="skill==='listening'" class="exam-grid">
-    <article class="paper audio-card">
-      <div class="section-nav">
-        <button v-for="(_,i) in listeningSections" :key="_.id" @click="section=i" :class="{active:section===i}">Audio {{i+1}}</button>
-      </div>
-      <h2>{{currentListening.title}}</h2>
-      <div class="orb">♫</div>
-      <button class="aero-button primary" @click="voice.speak(currentListening.script,settings.variant==='gb'?'en-GB':'en-US',.88)">Reproducir audio</button>
-      <!-- voice viene de toRefs(props), así que ya está auto-desenvuelto un
-           nivel en el template; sus propiedades internas (status, error)
-           siguen siendo refs y necesitan .value explícito. -->
-      <p class="voice-status" aria-live="polite">{{ voice.status.value }}</p>
-      <p v-if="voice.error.value" class="error">{{ voice.error.value }}</p>
-      <details v-if="settings.practice">
-        <summary>Mostrar transcripción de práctica</summary>
-        <p>{{currentListening.script}}</p>
-      </details>
-    </article>
-    <aside class="questions">
-      <div v-for="(q,i) in currentListening.questions" :key="`${currentListening.id}-${i}`" class="question">
-        <b>{{i+1}}. {{q.q}}</b>
-        <label v-for="(o,j) in q.options" :key="j" :class="feedback?{'right':j===q.answer,'wrong':answers[currentListening.id+i]===j&&j!==q.answer}:{}">
-          <input type="radio" :name="currentListening.id+i" :value="j" v-model="answers[currentListening.id+i]"> {{o}}
-        </label>
-      </div>
-      <button class="aero-button" @click="feedback=!feedback">{{feedback?'Ocultar':'Revisar'}} respuestas</button>
-      <p v-if="feedback"><b>Resultado: {{score(currentListening.questions,currentListening.id)}} / {{currentListening.questions.length}}</b></p>
-    </aside>
-  </div>
-
-  <div v-else-if="skill==='writing'" class="writing">
-    <div class="prompt-picker">
-      <button v-for="(p,i) in writingPrompts" :key="p.id" @click="selectedPrompt=i" :class="{active:selectedPrompt===i}">Opción {{i+1}} · {{p.type}}</button>
-    </div>
-    <article class="paper">
-      <span class="tag">Registro {{writingPrompts[selectedPrompt].register}}</span>
-      <h2>{{writingPrompts[selectedPrompt].type}}</h2>
-      <p>{{writingPrompts[selectedPrompt].prompt}}</p>
-      <p><b>Use 120–140 words.</b></p>
-    </article>
-    <textarea v-model="writing[writingPrompts[selectedPrompt].id]" rows="14" placeholder="Write your answer here..."></textarea>
-    <div class="wordbar" :class="{ok:wordCount>=120&&wordCount<=140}">{{wordCount}} palabras · Guardado automáticamente</div>
-    <div class="checklist">
-      <label><input type="checkbox"> Cumplí la tarea y el registro</label>
-      <label><input type="checkbox"> Organicé las ideas con conectores</label>
-      <label><input type="checkbox"> Revisé gramática, vocabulario, ortografía y puntuación</label>
-      <label><input type="checkbox"> Estoy entre 120 y 140 palabras</label>
-    </div>
-  </div>
-
-  <div v-else class="speaking">
-    <div class="notice"><b>Contexto seguro:</b> {{rec.secure?'Sí':'No'}} · <b>Grabación:</b> {{rec.supported?'Disponible':'No disponible'}} · {{rec.status}}</div>
-    <select v-model="rec.deviceId">
-      <option value="">Micrófono predeterminado</option>
-      <option v-for="d in rec.devices" :key="d.deviceId" :value="d.deviceId">{{d.label||'Micrófono'}}</option>
+  <div class="eyebrow">English Through Time</div>
+  <h1>Arqueología interactiva del inglés</h1>
+  <p class="lede">Compara inglés actual estadounidense y británico; abre la línea histórica cuando exista una adaptación fiable.</p>
+  <div class="toolbar">
+    <select v-model="filter" @change="index=0">
+      <option value="all">Todos los temas</option>
+      <option v-for="t in [...new Set(phraseJourneys.map(p=>p.topic))]" :key="t" :value="t">{{t}}</option>
     </select>
-    <button class="aero-button" @click="rec.test">Probar micrófono</button>
-    <p class="error" v-if="rec.error">{{rec.error}}</p>
+    <button class="aero-button" @click="next">Otra frase</button>
+  </div>
+  <article class="journey">
+    <div class="concept">
+      <span class="tag">{{current.level}} · {{current.topic}}</span>
+      <h2>{{current.es}}</h2>
+    </div>
+    <div class="variants">
+      <div class="variant us">
+        <div class="flag">US</div>
+        <h3>American English</h3>
+        <p class="big">{{current.us.text}}</p>
+        <code>{{current.us.ipa}}</code>
+        <button class="aero-button" @click="voice.playAudio(current.id,'en-US',current.us.text)">Escuchar en-US</button>
+      </div>
+      <div class="variant gb">
+        <div class="flag">UK</div>
+        <h3>British English</h3>
+        <p class="big">{{current.gb.text}}</p>
+        <code>{{current.gb.ipa}}</code>
+        <button class="aero-button" @click="voice.playAudio(current.id,'en-GB',current.gb.text)">Escuchar en-GB</button>
+      </div>
+    </div>
+    <!-- Antes no había NADA de status/error aquí: si speak() fallaba
+         (voz no encontrada, Brave bloqueando algo, etc.) no se veía nada. -->
     <p class="voice-status" aria-live="polite">{{ voice.status.value }}</p>
     <p v-if="voice.error.value" class="error">{{ voice.error.value }}</p>
-    <div class="prompt-stack">
-      <article v-for="(p,i) in speakingPrompts" :key="i" class="paper">
-        <small>Pregunta {{i+1}}</small>
-        <h2>{{p}}</h2>
-        <button class="aero-button" @click="voice.speak(p,settings.variant==='gb'?'en-GB':'en-US')">Escuchar</button>
+    <p class="note">{{current.note}}</p>
+    <div v-if="current.history" class="timeline">
+      <h3>Viaje histórico</h3>
+      <article v-for="(h,i) in current.history" :key="`${h.period}-${h.date}-${i}`" class="time-stop">
+        <span>{{h.date}}</span>
+        <div>
+          <b>{{h.period}}</b>
+          <p class="historic">{{h.text}}</p>
+          <small>{{h.status}} · confianza {{h.confidence}}</small>
+          <p>{{h.note}}</p>
+        </div>
       </article>
+      <div class="historical-warning">El audio histórico no se sintetiza automáticamente: las voces modernas no reproducen con fidelidad pronunciaciones reconstruidas.</div>
     </div>
-    <div class="recorder">
-      <button v-if="!rec.recording" class="aero-button primary" @click="rec.start">● Grabar respuesta</button>
-      <button v-else class="aero-button danger" @click="rec.stop">■ Detener · {{rec.elapsed}} s</button>
-      <div class="meter"><span :style="{width:rec.level+'%'}"></span></div>
-      <audio v-if="rec.audioUrl" :src="rec.audioUrl" controls></audio>
-    </div>
-    <div class="checklist">
-      <b>Autoevaluación orientativa</b>
-      <label><input type="checkbox"> Mis ideas fueron comprensibles</label>
-      <label><input type="checkbox"> Sostuve la respuesta con razones o ejemplos</label>
-      <label><input type="checkbox"> Mi pronunciación no impidió la comunicación</label>
-      <label><input type="checkbox"> Mantuve una fluidez razonable aunque hice pausas</label>
-    </div>
-  </div>
+    <div v-else class="empty-history">Esta idea no tiene una versión histórica natural curada. Preferimos dejarla vacía antes que inventarla.</div>
+  </article>
 </section>
 </template>

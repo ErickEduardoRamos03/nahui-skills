@@ -1,3 +1,10 @@
+// ============================================================
+// RUTA EN TU PROYECTO: src/composables/useVoice.js
+// (reemplaza el archivo que ya existe ahí)
+//
+// INSTALACIÓN: ninguna. Usa Vue, que ya está en tu proyecto.
+// No necesita npm install de nada nuevo.
+// ============================================================
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 const US_KEY = 'nahui-voice-en-US'
@@ -136,6 +143,33 @@ export function useVoice() {
     speak(SAMPLE[locale], locale, 0.88)
   }
 
+  // playAudio(id, locale, fallbackText, rate?)
+  // Intenta reproducir un mp3 pregrabado en /public/audio/<id>-<us|gb>.mp3
+  // (generado por scripts/generate_audio.py). Si no existe todavía —por
+  // ejemplo, agregaste contenido nuevo y aún no corriste el script—, cae
+  // de regreso a speechSynthesis con fallbackText para que nunca se quede
+  // mudo. Esto suena IDÉNTICO en cualquier navegador porque un <audio>
+  // reproduciendo un mp3 no depende de qué voces trae el sistema.
+  function playAudio(id, locale, fallbackText, rate = 0.9) {
+    error.value = ''
+    const suffix = locale.toLowerCase().startsWith('en-gb') ? 'gb' : 'us'
+    const src = `/audio/${id}-${suffix}.mp3`
+    const audio = new Audio(src)
+
+    status.value = `Reproduciendo ${locale}: audio pregrabado`
+    audio.onended = () => { status.value = '' }
+    audio.onerror = () => {
+      // No existe el archivo (404) u otro problema de reproducción:
+      // nos vamos al plan B con síntesis en vivo, sin molestar al usuario.
+      status.value = ''
+      if (fallbackText) speak(fallbackText, locale, rate)
+    }
+    audio.play().catch(() => {
+      status.value = ''
+      if (fallbackText) speak(fallbackText, locale, rate)
+    })
+  }
+
   function previewContrast() {
     speak(SAMPLE['en-US'], 'en-US', 0.88)
     setTimeout(() => speak(SAMPLE['en-GB'], 'en-GB', 0.88), 5200)
@@ -161,6 +195,6 @@ export function useVoice() {
   return {
     voices, englishVoices, usVoices, gbVoices,
     usVoiceURI, gbVoiceURI, selectedUS, selectedGB,
-    status, error, load, speak, preview, previewContrast
+    status, error, load, speak, preview, previewContrast, playAudio
   }
 }

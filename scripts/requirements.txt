@@ -1,0 +1,9 @@
+# RUTA EN TU PROYECTO: scripts/requirements.txt
+# (archivo NUEVO, junto a los demás scripts)
+#
+# INSTALACIÓN (una sola vez, en tu máquina):
+#   pip install -r scripts/requirements.txt
+#
+# Esto instala lo mismo que "pip install edge-tts", nada más.
+
+edge-tts
