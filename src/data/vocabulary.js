@@ -23,4 +23,20 @@ export const vocabularyEntries = [
   { id: 'v22', level: 'B2', category: 'Titulación', es: 'carta de no adeudo', us: 'clearance certificate', gb: 'clearance letter', note: 'Acredita que no hay adeudos académicos, bibliotecarios o administrativos.' },
   { id: 'v23', level: 'B2', category: 'Titulación', es: 'servicio social', us: 'mandatory community service', gb: 'required community service', note: 'No hay un equivalente único: explica el requisito institucional si es necesario.' },
   { id: 'v24', level: 'B2', category: 'Titulación', es: 'prácticas profesionales', us: 'professional internship / work placement', gb: 'industrial placement / work placement', note: 'Placement es especialmente frecuente en inglés británico.' }
+  ,{ id: 'v25', level: 'B1', category: 'Biblioteca', es: 'fecha de devolución', us: 'due date', gb: 'return date / due date', note: 'La fecha límite para devolver un préstamo.' }
+  ,{ id: 'v26', level: 'B1', category: 'Biblioteca', es: 'renovar un préstamo', us: 'renew a loan', gb: 'renew a loan', note: 'Extender el periodo de préstamo antes de que venza.' }
+  ,{ id: 'v27', level: 'B1', category: 'Campus', es: 'zona de estudio', us: 'study area', gb: 'study area', note: 'Área destinada al trabajo individual o en grupo.' }
+  ,{ id: 'v28', level: 'B1', category: 'Movilidad', es: 'desvío', us: 'detour', gb: 'diversion', note: 'Cambio temporal de ruta por obras, eventos o cierres.' }
+  ,{ id: 'v29', level: 'B1', category: 'Trabajo en equipo', es: 'repartir responsabilidades', us: 'share responsibilities', gb: 'share responsibilities', note: 'Aclara quién se encarga de cada parte de una tarea.' }
+  ,{ id: 'v30', level: 'B1', category: 'Presentaciones', es: 'punto principal', us: 'main point', gb: 'main point', note: 'Idea que debe quedar clara para la audiencia.' }
+  ,{ id: 'v31', level: 'B2', category: 'Investigación', es: 'muestra de la encuesta', us: 'survey sample', gb: 'survey sample', note: 'Grupo de personas del que se recaban respuestas.' }
+  ,{ id: 'v32', level: 'B2', category: 'Investigación', es: 'limitación', us: 'limitation', gb: 'limitation', note: 'Factor que restringe el alcance de una conclusión.' }
+  ,{ id: 'v33', level: 'B2', category: 'Investigación', es: 'evidencia', us: 'evidence', gb: 'evidence', note: 'Información que respalda una afirmación; suele ser incontable.' }
+  ,{ id: 'v34', level: 'B2', category: 'Comunicación clara', es: 'lenguaje claro', us: 'plain language', gb: 'plain English', note: 'Redacción comprensible para personas no especialistas.' }
+  ,{ id: 'v35', level: 'B2', category: 'Comunicación clara', es: 'público destinatario', us: 'intended audience', gb: 'intended audience', note: 'Personas para quienes se diseña un mensaje.' }
+  ,{ id: 'v36', level: 'B2', category: 'Comunicación clara', es: 'información engañosa', us: 'misleading information', gb: 'misleading information', note: 'Puede ser técnicamente cierta y aun así crear una impresión equivocada.' }
+  ,{ id: 'v37', level: 'B2', category: 'Diseño', es: 'prototipo', us: 'prototype', gb: 'prototype', note: 'Versión inicial usada para probar una idea antes de implementarla.' }
+  ,{ id: 'v38', level: 'B2', category: 'Diseño', es: 'accesibilidad', us: 'accessibility', gb: 'accessibility', note: 'Facilidad con la que personas con distintas necesidades usan información o servicios.' }
+  ,{ id: 'v39', level: 'B2', category: 'Trabajo en equipo', es: 'fecha límite', us: 'deadline', gb: 'deadline', note: 'Plazo final para entregar una actividad; no es lo mismo que una cita.' }
+  ,{ id: 'v40', level: 'B2', category: 'Trabajo en equipo', es: 'dar retroalimentación', us: 'give feedback', gb: 'give feedback', note: 'Conviene especificar qué funcionó y qué podría mejorar.' }
 ]

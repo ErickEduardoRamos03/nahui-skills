@@ -7,7 +7,7 @@ export const readingSections = [
     "id": "r1",
     "level": "B1",
     "title": "A quieter way to study",
-    "text": "Maya replaced long late-night sessions with three short study blocks. Before each block, she chose one goal, such as reviewing a verb tense or answering five questions. She kept her phone in another room and used a timer.\n\nAfter every block, she wrote one sentence about what remained difficult. Those notes helped her begin the next session without wasting time. She also stopped studying thirty minutes before bed.\n\nAfter two weeks, Maya was not studying more hours, but she remembered more and felt less rushed. Her experience suggests that a regular, specific routine can be more useful than an exhausting one.",
+    "text": "Maya replaced long late-night sessions with three short study blocks. Before each block, she chose one specific goal, such as reviewing a verb tense or answering five questions. She kept her phone in another room and used a timer, so she was not tempted to check messages every few minutes.\n\nAfter every block, she wrote a single sentence about what remained difficult. Those notes helped her begin the next session without wasting time on decisions she had already made. She also stopped studying thirty minutes before bed, which made it easier to fall asleep and reduced the feeling of constant pressure.\n\nThe change did not turn her into a perfect student, but it did make her revision more consistent. After two weeks, she was not studying more hours than before, yet she remembered more material, felt less rushed, and was more willing to continue. Her experience suggests that a regular routine can work better than a demanding one when the goal is long-term learning rather than short-term exhaustion.",
     "questions": [
       {
         "type": "mc",
@@ -61,6 +61,17 @@ export const readingSections = [
           "mysterious and uncertain"
         ],
         "answer": 0
+      },
+      {
+        "type": "mc",
+        "q": "Which statement is not supported by the passage?",
+        "options": [
+          "Maya became more efficient by reducing distractions and setting a clear purpose for each session.",
+          "She stopped studying at night because she believed every revision session must be long.",
+          "Her notes helped her begin the next session with a clearer plan.",
+          "The text suggests that consistency can matter more than sheer effort."
+        ],
+        "answer": 1
       }
     ]
   },
@@ -122,6 +133,17 @@ export const readingSections = [
           "mysterious and uncertain"
         ],
         "answer": 0
+      },
+      {
+        "type": "mc",
+        "q": "Which idea is implied rather than directly stated?",
+        "options": [
+          "The scheme worked best when rules were simple and responsibilities were visible.",
+          "Everyone who used the shelf became a volunteer.",
+          "The shelf was created only for expensive tools.",
+          "The service began after a serious accident."
+        ],
+        "answer": 0
       }
     ]
   },
@@ -181,6 +203,17 @@ export const readingSections = [
           "angry and accusatory",
           "comic and exaggerated",
           "mysterious and uncertain"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "mc",
+        "q": "Why did the new signs prove useful?",
+        "options": [
+          "Because the design reduced confusion for people with different levels of experience.",
+          "Because the staff wanted to avoid all visual design.",
+          "Because they replaced every employee at the station.",
+          "Because no one asked questions before the change."
         ],
         "answer": 0
       }
@@ -1281,6 +1314,16 @@ export const listeningSections = [
           "A literary metaphor"
         ],
         "answer": 0
+      },
+      {
+        "q": "Which detail is most likely to matter if the listener arrives after 7pm?",
+        "options": [
+          "The study area is still open until nine",
+          "The speaker is hosting a celebration",
+          "The printer is closed all day",
+          "The books are only available online"
+        ],
+        "answer": 0
       }
     ]
   },
@@ -1339,6 +1382,16 @@ export const listeningSections = [
           "A literary metaphor"
         ],
         "answer": 0
+      },
+      {
+        "q": "Which statement is most likely to be true?",
+        "options": [
+          "The event may be delayed if the weather worsens.",
+          "The cleanup is cancelled for all volunteers.",
+          "Only gloves will be supplied and not water.",
+          "The north gate will reopen after the event."
+        ],
+        "answer": 0
       }
     ]
   },
@@ -1395,6 +1448,16 @@ export const listeningSections = [
           "The speaker’s age",
           "An unstated opinion",
           "A literary metaphor"
+        ],
+        "answer": 0
+      },
+      {
+        "q": "Which extra item would a listener most likely need before attending?",
+        "options": [
+          "A student ID",
+          "A passport",
+          "A textbook",
+          "A map of the campus"
         ],
         "answer": 0
       }
@@ -2555,6 +2618,27 @@ export const writingPrompts = [
     "level": "B2",
     "type": "Problem-solution essay",
     "prompt": "Analyze how unclear responsibilities affect teamwork and propose a better process.",
+    "register": "formal"
+  },
+  {
+    "id": "w25",
+    "level": "B2",
+    "type": "Issue analysis",
+    "prompt": "A local service published a misleading statistic about user satisfaction. Explain why the number may be unreliable and propose a more transparent way to report it.",
+    "register": "formal"
+  },
+  {
+    "id": "w26",
+    "level": "B2",
+    "type": "Policy memo",
+    "prompt": "A university plans to reduce paper use by requiring all assignments to be submitted digitally. Discuss the advantages, the risk of excluding some students, and a fair compromise.",
+    "register": "formal"
+  },
+  {
+    "id": "w27",
+    "level": "B2",
+    "type": "Argumentative response",
+    "prompt": "Some people believe that using urgent labels for every message improves responsiveness. Evaluate this claim and explain when urgency language helps and when it becomes counterproductive.",
     "register": "formal"
   }
 ]
