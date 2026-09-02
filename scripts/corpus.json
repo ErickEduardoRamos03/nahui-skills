@@ -318,5 +318,445 @@
     "id": "p12-gb",
     "locale": "en-GB",
     "text": "The new report is clearer and less redundant."
+  },
+  {
+    "id": "spk-intro-1-us",
+    "locale": "en-US",
+    "text": "Hello! Welcome to your speaking test. To begin, could you tell me your full name, and what career or subject are you studying or working in?"
+  },
+  {
+    "id": "spk-intro-1-gb",
+    "locale": "en-GB",
+    "text": "Hello! Welcome to your speaking test. To begin, could you tell me your full name, and what career or subject are you studying or working in?"
+  },
+  {
+    "id": "spk-conclusion-us",
+    "locale": "en-US",
+    "text": "Thank you very much. That concludes our oral interview. Let us review your official examination results."
+  },
+  {
+    "id": "spk-conclusion-gb",
+    "locale": "en-GB",
+    "text": "Thank you very much. That concludes our oral interview. Let us review your official examination results."
+  },
+  {
+    "id": "spk-react-software-us",
+    "locale": "en-US",
+    "text": "Wow, Computer Science and Software! That is such a dynamic and high-impact field with rapid technological developments."
+  },
+  {
+    "id": "spk-react-software-gb",
+    "locale": "en-GB",
+    "text": "Wow, Computer Science and Software! That is such a dynamic and high-impact field with rapid technological developments."
+  },
+  {
+    "id": "spk-q2-software-us",
+    "locale": "en-US",
+    "text": "In technology and programming, what has been the most challenging project or problem you had to solve during your studies?"
+  },
+  {
+    "id": "spk-q2-software-gb",
+    "locale": "en-GB",
+    "text": "In technology and programming, what has been the most challenging project or problem you had to solve during your studies?"
+  },
+  {
+    "id": "spk-react2-software-us",
+    "locale": "en-US",
+    "text": "Solving complex technical bugs and building working software requires great perseverance!"
+  },
+  {
+    "id": "spk-react2-software-gb",
+    "locale": "en-GB",
+    "text": "Solving complex technical bugs and building working software requires great perseverance!"
+  },
+  {
+    "id": "spk-q3-software-us",
+    "locale": "en-US",
+    "text": "In the software industry, do you prefer working remotely writing code independently, or collaborating in agile multidisciplinary teams? Why?"
+  },
+  {
+    "id": "spk-q3-software-gb",
+    "locale": "en-GB",
+    "text": "In the software industry, do you prefer working remotely writing code independently, or collaborating in agile multidisciplinary teams? Why?"
+  },
+  {
+    "id": "spk-react3-software-us",
+    "locale": "en-US",
+    "text": "Very thoughtful points. Clear communication in engineering teams is just as essential as clean code."
+  },
+  {
+    "id": "spk-react3-software-gb",
+    "locale": "en-GB",
+    "text": "Very thoughtful points. Clear communication in engineering teams is just as essential as clean code."
+  },
+  {
+    "id": "spk-q4-software-us",
+    "locale": "en-US",
+    "text": "To conclude: If you could develop any new software application or AI tool to solve a real-world problem, what would it do and why?"
+  },
+  {
+    "id": "spk-q4-software-gb",
+    "locale": "en-GB",
+    "text": "To conclude: If you could develop any new software application or AI tool to solve a real-world problem, what would it do and why?"
+  },
+  {
+    "id": "spk-react-civil-us",
+    "locale": "en-US",
+    "text": "Civil Engineering and Architecture! That is fascinating. Designing and building safe, sustainable infrastructure shapes our cities every day."
+  },
+  {
+    "id": "spk-react-civil-gb",
+    "locale": "en-GB",
+    "text": "Civil Engineering and Architecture! That is fascinating. Designing and building safe, sustainable infrastructure shapes our cities every day."
+  },
+  {
+    "id": "spk-q2-civil-us",
+    "locale": "en-US",
+    "text": "Tell me about a memorable design, calculation, or construction project you worked on, and what you learned from it."
+  },
+  {
+    "id": "spk-q2-civil-gb",
+    "locale": "en-GB",
+    "text": "Tell me about a memorable design, calculation, or construction project you worked on, and what you learned from it."
+  },
+  {
+    "id": "spk-react2-civil-us",
+    "locale": "en-US",
+    "text": "Structural safety and precise calculations are the backbone of great architecture."
+  },
+  {
+    "id": "spk-react2-civil-gb",
+    "locale": "en-GB",
+    "text": "Structural safety and precise calculations are the backbone of great architecture."
+  },
+  {
+    "id": "spk-q3-civil-us",
+    "locale": "en-US",
+    "text": "When planning modern urban spaces, is it better to prioritize high-density residential towers or green ecological parks? What is your view?"
+  },
+  {
+    "id": "spk-q3-civil-gb",
+    "locale": "en-GB",
+    "text": "When planning modern urban spaces, is it better to prioritize high-density residential towers or green ecological parks? What is your view?"
+  },
+  {
+    "id": "spk-react3-civil-us",
+    "locale": "en-US",
+    "text": "A well-reasoned perspective on balancing urban expansion with environmental sustainability."
+  },
+  {
+    "id": "spk-react3-civil-gb",
+    "locale": "en-GB",
+    "text": "A well-reasoned perspective on balancing urban expansion with environmental sustainability."
+  },
+  {
+    "id": "spk-q4-civil-us",
+    "locale": "en-US",
+    "text": "To conclude: If you were in charge of redesigning public transit and infrastructure in your city, what major project would you implement first?"
+  },
+  {
+    "id": "spk-q4-civil-gb",
+    "locale": "en-GB",
+    "text": "To conclude: If you were in charge of redesigning public transit and infrastructure in your city, what major project would you implement first?"
+  },
+  {
+    "id": "spk-react-health-us",
+    "locale": "en-US",
+    "text": "Medicine and healthcare! That requires extraordinary commitment, scientific knowledge, and genuine empathy."
+  },
+  {
+    "id": "spk-react-health-gb",
+    "locale": "en-GB",
+    "text": "Medicine and healthcare! That requires extraordinary commitment, scientific knowledge, and genuine empathy."
+  },
+  {
+    "id": "spk-q2-health-us",
+    "locale": "en-US",
+    "text": "What has been the most rewarding or demanding experience you have encountered in your medical or health studies so far?"
+  },
+  {
+    "id": "spk-q2-health-gb",
+    "locale": "en-GB",
+    "text": "What has been the most rewarding or demanding experience you have encountered in your medical or health studies so far?"
+  },
+  {
+    "id": "spk-react2-health-us",
+    "locale": "en-US",
+    "text": "That truly highlights the compassion and resilience required in healthcare professions."
+  },
+  {
+    "id": "spk-react2-health-gb",
+    "locale": "en-GB",
+    "text": "That truly highlights the compassion and resilience required in healthcare professions."
+  },
+  {
+    "id": "spk-q3-health-us",
+    "locale": "en-US",
+    "text": "Some experts believe digital telemedicine and AI diagnostics will replace traditional in-person doctor visits. What is your stance?"
+  },
+  {
+    "id": "spk-q3-health-gb",
+    "locale": "en-GB",
+    "text": "Some experts believe digital telemedicine and AI diagnostics will replace traditional in-person doctor visits. What is your stance?"
+  },
+  {
+    "id": "spk-react3-health-us",
+    "locale": "en-US",
+    "text": "Very insightful. The human touch and clinical intuition in medicine cannot be easily replaced by machines."
+  },
+  {
+    "id": "spk-react3-health-gb",
+    "locale": "en-GB",
+    "text": "Very insightful. The human touch and clinical intuition in medicine cannot be easily replaced by machines."
+  },
+  {
+    "id": "spk-q4-health-us",
+    "locale": "en-US",
+    "text": "To conclude: If you could eradicate one disease or solve one critical public health issue globally, what would you focus on?"
+  },
+  {
+    "id": "spk-q4-health-gb",
+    "locale": "en-GB",
+    "text": "To conclude: If you could eradicate one disease or solve one critical public health issue globally, what would you focus on?"
+  },
+  {
+    "id": "spk-react-mechanics-us",
+    "locale": "en-US",
+    "text": "Mechatronics and robotics! Bringing together mechanics, electronics, and automation is truly impressive."
+  },
+  {
+    "id": "spk-react-mechanics-gb",
+    "locale": "en-GB",
+    "text": "Mechatronics and robotics! Bringing together mechanics, electronics, and automation is truly impressive."
+  },
+  {
+    "id": "spk-q2-mechanics-us",
+    "locale": "en-US",
+    "text": "Could you describe a machine, robot, circuit, or mechanical prototype you enjoyed building or troubleshooting?"
+  },
+  {
+    "id": "spk-q2-mechanics-gb",
+    "locale": "en-GB",
+    "text": "Could you describe a machine, robot, circuit, or mechanical prototype you enjoyed building or troubleshooting?"
+  },
+  {
+    "id": "spk-react2-mechanics-us",
+    "locale": "en-US",
+    "text": "Hands-on engineering projects and troubleshooting provide the best practical learning experiences."
+  },
+  {
+    "id": "spk-react2-mechanics-gb",
+    "locale": "en-GB",
+    "text": "Hands-on engineering projects and troubleshooting provide the best practical learning experiences."
+  },
+  {
+    "id": "spk-q3-mechanics-us",
+    "locale": "en-US",
+    "text": "As automated robots become more common in manufacturing and daily life, what are the biggest advantages and challenges for workers?"
+  },
+  {
+    "id": "spk-q3-mechanics-gb",
+    "locale": "en-GB",
+    "text": "As automated robots become more common in manufacturing and daily life, what are the biggest advantages and challenges for workers?"
+  },
+  {
+    "id": "spk-react3-mechanics-us",
+    "locale": "en-US",
+    "text": "Great analysis on industrial efficiency and the shifting demands of modern technical jobs."
+  },
+  {
+    "id": "spk-react3-mechanics-gb",
+    "locale": "en-GB",
+    "text": "Great analysis on industrial efficiency and the shifting demands of modern technical jobs."
+  },
+  {
+    "id": "spk-q4-mechanics-us",
+    "locale": "en-US",
+    "text": "To conclude: If you had unlimited funding to invent a new robotic machine for everyday life, what would it do?"
+  },
+  {
+    "id": "spk-q4-mechanics-gb",
+    "locale": "en-GB",
+    "text": "To conclude: If you had unlimited funding to invent a new robotic machine for everyday life, what would it do?"
+  },
+  {
+    "id": "spk-react-business-us",
+    "locale": "en-US",
+    "text": "Business and management! Leading teams and analyzing strategic market decisions is essential in today's global economy."
+  },
+  {
+    "id": "spk-react-business-gb",
+    "locale": "en-GB",
+    "text": "Business and management! Leading teams and analyzing strategic market decisions is essential in today's global economy."
+  },
+  {
+    "id": "spk-q2-business-us",
+    "locale": "en-US",
+    "text": "Tell me about a time when you had to manage a tight deadline, lead a team, or organize a project effectively."
+  },
+  {
+    "id": "spk-q2-business-gb",
+    "locale": "en-GB",
+    "text": "Tell me about a time when you had to manage a tight deadline, lead a team, or organize a project effectively."
+  },
+  {
+    "id": "spk-react2-business-us",
+    "locale": "en-US",
+    "text": "Strong leadership and time management are critical assets in any successful organization."
+  },
+  {
+    "id": "spk-react2-business-gb",
+    "locale": "en-GB",
+    "text": "Strong leadership and time management are critical assets in any successful organization."
+  },
+  {
+    "id": "spk-q3-business-us",
+    "locale": "en-US",
+    "text": "In modern business, is it more important for a corporation to focus on rapid financial profit or long-term social responsibility? Why?"
+  },
+  {
+    "id": "spk-q3-business-gb",
+    "locale": "en-GB",
+    "text": "In modern business, is it more important for a corporation to focus on rapid financial profit or long-term social responsibility? Why?"
+  },
+  {
+    "id": "spk-react3-business-us",
+    "locale": "en-US",
+    "text": "A balanced view. Corporate ethics and sustainability are becoming central to modern enterprise."
+  },
+  {
+    "id": "spk-react3-business-gb",
+    "locale": "en-GB",
+    "text": "A balanced view. Corporate ethics and sustainability are becoming central to modern enterprise."
+  },
+  {
+    "id": "spk-q4-business-us",
+    "locale": "en-US",
+    "text": "To conclude: If you were given seed investment to launch your own startup tomorrow, what kind of company would you create?"
+  },
+  {
+    "id": "spk-q4-business-gb",
+    "locale": "en-GB",
+    "text": "To conclude: If you were given seed investment to launch your own startup tomorrow, what kind of company would you create?"
+  },
+  {
+    "id": "spk-react-chemistry-us",
+    "locale": "en-US",
+    "text": "Chemistry and biotechnology! Working in laboratory research to develop new sustainable materials and food science is fascinating."
+  },
+  {
+    "id": "spk-react-chemistry-gb",
+    "locale": "en-GB",
+    "text": "Chemistry and biotechnology! Working in laboratory research to develop new sustainable materials and food science is fascinating."
+  },
+  {
+    "id": "spk-q2-chemistry-us",
+    "locale": "en-US",
+    "text": "Describe an interesting laboratory experiment or scientific breakthrough that caught your attention during your studies."
+  },
+  {
+    "id": "spk-q2-chemistry-gb",
+    "locale": "en-GB",
+    "text": "Describe an interesting laboratory experiment or scientific breakthrough that caught your attention during your studies."
+  },
+  {
+    "id": "spk-react2-chemistry-us",
+    "locale": "en-US",
+    "text": "Rigorous scientific methodology and careful experimentation lead to the most important innovations."
+  },
+  {
+    "id": "spk-react2-chemistry-gb",
+    "locale": "en-GB",
+    "text": "Rigorous scientific methodology and careful experimentation lead to the most important innovations."
+  },
+  {
+    "id": "spk-q3-chemistry-us",
+    "locale": "en-US",
+    "text": "Should governments invest more heavily in renewable biotechnology or traditional chemical manufacturing? Defend your view."
+  },
+  {
+    "id": "spk-q3-chemistry-gb",
+    "locale": "en-GB",
+    "text": "Should governments invest more heavily in renewable biotechnology or traditional chemical manufacturing? Defend your view."
+  },
+  {
+    "id": "spk-react3-chemistry-us",
+    "locale": "en-US",
+    "text": "Excellent points regarding green chemistry and the future of sustainable production."
+  },
+  {
+    "id": "spk-react3-chemistry-gb",
+    "locale": "en-GB",
+    "text": "Excellent points regarding green chemistry and the future of sustainable production."
+  },
+  {
+    "id": "spk-q4-chemistry-us",
+    "locale": "en-US",
+    "text": "To conclude: If you could discover a new sustainable material or clean energy source, what properties would it have?"
+  },
+  {
+    "id": "spk-q4-chemistry-gb",
+    "locale": "en-GB",
+    "text": "To conclude: If you could discover a new sustainable material or clean energy source, what properties would it have?"
+  },
+  {
+    "id": "spk-react-general-us",
+    "locale": "en-US",
+    "text": "That sounds like a very engaging and meaningful path to pursue! Thank you for sharing your background."
+  },
+  {
+    "id": "spk-react-general-gb",
+    "locale": "en-GB",
+    "text": "That sounds like a very engaging and meaningful path to pursue! Thank you for sharing your background."
+  },
+  {
+    "id": "spk-q2-general-us",
+    "locale": "en-US",
+    "text": "What was a key lesson or memorable achievement from your education that truly influenced the way you think?"
+  },
+  {
+    "id": "spk-q2-general-gb",
+    "locale": "en-GB",
+    "text": "What was a key lesson or memorable achievement from your education that truly influenced the way you think?"
+  },
+  {
+    "id": "spk-react2-general-us",
+    "locale": "en-US",
+    "text": "Personal growth through education and meaningful experiences is always inspiring."
+  },
+  {
+    "id": "spk-react2-general-gb",
+    "locale": "en-GB",
+    "text": "Personal growth through education and meaningful experiences is always inspiring."
+  },
+  {
+    "id": "spk-q3-general-us",
+    "locale": "en-US",
+    "text": "Some people argue that practical real-world experience is far more valuable than theoretical academic knowledge. What is your perspective?"
+  },
+  {
+    "id": "spk-q3-general-gb",
+    "locale": "en-GB",
+    "text": "Some people argue that practical real-world experience is far more valuable than theoretical academic knowledge. What is your perspective?"
+  },
+  {
+    "id": "spk-react3-general-us",
+    "locale": "en-US",
+    "text": "Very thoughtful. Combining solid theory with practical execution is usually the most effective approach."
+  },
+  {
+    "id": "spk-react3-general-gb",
+    "locale": "en-GB",
+    "text": "Very thoughtful. Combining solid theory with practical execution is usually the most effective approach."
+  },
+  {
+    "id": "spk-q4-general-us",
+    "locale": "en-US",
+    "text": "To conclude: If you could design a brand new educational course for university students, what subject would you teach and why?"
+  },
+  {
+    "id": "spk-q4-general-gb",
+    "locale": "en-GB",
+    "text": "To conclude: If you could design a brand new educational course for university students, what subject would you teach and why?"
   }
 ]

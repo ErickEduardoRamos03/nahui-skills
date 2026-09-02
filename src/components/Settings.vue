@@ -98,6 +98,17 @@ async function load(event) {
       </article>
 
       <article class="glass">
+        <h2>🛡️ Privacidad y Micrófono (Speaking)</h2>
+        <p><strong>100% Procesamiento Local:</strong></p>
+        <ul style="margin: 0.5rem 0; padding-left: 1.2rem; line-height: 1.6;">
+          <li>El reconocimiento de voz y la transcripción se ejecutan en tu navegador mediante la <b>Web Speech API</b>.</li>
+          <li><b>Ninguna grabación</b> se envía ni se almacena en servidores externos o en la nube.</li>
+          <li>Los audios grabados para escucharte solo viven en la memoria temporal (RAM) de la pestaña y se descartan al salir o recargar.</li>
+          <li>Puedes conceder o revocar permisos de micrófono en cualquier momento desde el icono de candado en la barra de tu navegador.</li>
+        </ul>
+      </article>
+
+      <article class="glass">
         <h2>Respaldo</h2>
         <button class="aero-button" @click="exportData">Exportar JSON</button>
         <label class="aero-button file">Importar JSON<input hidden type="file" accept="application/json" @change="load"></label>

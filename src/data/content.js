@@ -2796,6 +2796,464 @@ export const speakingPrompts = [
   }
 ]
 
+export const speakingInterviews = [
+  {
+    "id": "interview-b1-1",
+    "level": "B1",
+    "title": "B1 Simulation: Personal Life, School & Environment",
+    "description": "Oral interview covering personal details, past school experiences, living preferences, and problem-solving.",
+    "stages": [
+      {
+        "stageNumber": 1,
+        "theme": "Información personal",
+        "targetGrammar": "Present simple",
+        "examinerQuestion": "Hello! Welcome to your speaking test. To begin, could you tell me your full name, and whether you study or work? What is your hometown like?",
+        "helperPrompt": "State your name, explain your occupation or studies, and describe where you live (size, weather, or atmosphere).",
+        "expectedKeywords": ["name", "study", "work", "live", "city", "town", "student", "because"]
+      },
+      {
+        "stageNumber": 2,
+        "theme": "Hábitos, planes e intereses",
+        "targetGrammar": "Past simple & Present continuous",
+        "examinerQuestion": "Thank you. Now tell me, what do you usually enjoy doing in your free time, and what was the best thing you accomplished in high school?",
+        "helperPrompt": "Describe your hobbies and share a positive memory or achievement from your school years.",
+        "expectedKeywords": ["free time", "enjoy", "hobby", "school", "accomplished", "passed", "project", "when"]
+      },
+      {
+        "stageNumber": 3,
+        "theme": "Opiniones y preferencias",
+        "targetGrammar": "Comparatives & Superlatives",
+        "examinerQuestion": "Moving on to living environments: in your opinion, is it better to live in a big city or in the countryside? Explain why.",
+        "helperPrompt": "Compare both options using comparative structures (e.g. 'more peaceful', 'busier than', 'better because').",
+        "expectedKeywords": ["city", "countryside", "better", "peaceful", "quiet", "traffic", "convenient", "however", "because"]
+      },
+      {
+        "stageNumber": 4,
+        "theme": "Situaciones y sugerencias",
+        "targetGrammar": "Conditionals & Suggestions",
+        "examinerQuestion": "Finally, let's talk about everyday situations. When you miss the bus or arrive late somewhere, what do you usually do? Also, I'm interested in science fiction; is there any movie or series you recommend?",
+        "helperPrompt": "Explain what you do when you face delays, and recommend a movie with a brief reason.",
+        "expectedKeywords": ["when", "bus", "call", "wait", "recommend", "movie", "should", "watch", "because"]
+      }
+    ]
+  },
+  {
+    "id": "interview-b1-2",
+    "level": "B1",
+    "title": "B1 Simulation: Routine, Future Holidays & Technology",
+    "description": "Oral interview covering family background, future holiday plans, science vs agriculture, and hypothetical encounters.",
+    "stages": [
+      {
+        "stageNumber": 1,
+        "theme": "Información personal",
+        "targetGrammar": "Present simple",
+        "examinerQuestion": "Good day! Welcome. Please state your full name and tell me a little bit about your family and daily routine.",
+        "helperPrompt": "Introduce yourself, mention who you live with or your family members, and outline your routine.",
+        "expectedKeywords": ["name", "family", "live", "parents", "brother", "sister", "morning", "usually", "routine"]
+      },
+      {
+        "stageNumber": 2,
+        "theme": "Hábitos, planes e intereses",
+        "targetGrammar": "Will / Going to & Present perfect",
+        "examinerQuestion": "Nice. What are your main plans for next summer, and have you ever had to prepare for a very difficult exam or project before?",
+        "helperPrompt": "Discuss your upcoming summer plans using 'going to' or 'will', and mention a past preparation experience.",
+        "expectedKeywords": ["summer", "going to", "travel", "study", "exam", "prepared", "have", "because"]
+      },
+      {
+        "stageNumber": 3,
+        "theme": "Opiniones y preferencias",
+        "targetGrammar": "Comparatives & Giving reasons",
+        "examinerQuestion": "Some people argue that modern technology and science are more important than agriculture. What is your opinion on that?",
+        "helperPrompt": "State your point of view and balance both fields (food production vs technological tools).",
+        "expectedKeywords": ["science", "agriculture", "important", "food", "technology", "both", "in my opinion", "because"]
+      },
+      {
+        "stageNumber": 4,
+        "theme": "Situaciones y sugerencias",
+        "targetGrammar": "First conditional & Advice",
+        "examinerQuestion": "To conclude: What will you do if you meet your favorite actor or role model someday? What would you ask them?",
+        "helperPrompt": "Use conditional sentences (e.g., 'If I meet them, I will...') to describe your reaction and questions.",
+        "expectedKeywords": ["if", "will", "ask", "meet", "excited", "picture", "advice", "talk"]
+      }
+    ]
+  },
+  {
+    "id": "interview-b2-1",
+    "level": "B2",
+    "title": "B2 Simulation: Academic Motivation, F2F vs Online & Dilemmas",
+    "description": "Advanced 4-phase interview addressing career motivations, long-term projections, educational formats, and hypothetical dilemmas.",
+    "stages": [
+      {
+        "stageNumber": 1,
+        "theme": "Información académica y personal",
+        "targetGrammar": "Present simple, perfect & reason linkers",
+        "examinerQuestion": "Good afternoon. Please state your full name. Why did you choose your current major or career path, and what are your main academic goals?",
+        "helperPrompt": "Introduce yourself, explain what motivated your field choice, and discuss your current goals.",
+        "expectedKeywords": ["name", "major", "career", "chose", "field", "goal", "passion", "engineering", "university", "because"]
+      },
+      {
+        "stageNumber": 2,
+        "theme": "Hábitos, trayectoria y proyecciones",
+        "targetGrammar": "Future continuous & Narrative tenses",
+        "examinerQuestion": "Interesting. Looking ahead, what will you be doing this time next year in your career, and what did you use to do after school when you were a kid compared to now?",
+        "helperPrompt": "Contrast past habits ('used to / would') with future projections ('I will be working / studying').",
+        "expectedKeywords": ["next year", "will be doing", "used to", "play", "responsibilities", "studying", "working", "contrast"]
+      },
+      {
+        "stageNumber": 3,
+        "theme": "Debates y análisis crítico",
+        "targetGrammar": "Clauses of concession & Debating",
+        "examinerQuestion": "In modern education, is it better to study in a Face-to-Face (F2F) environment or online? Evaluate the advantages and drawbacks of both approaches.",
+        "helperPrompt": "Balance interaction, discipline, flexibility, and practical learning using connectors like 'although', 'on the one hand', 'whereas'.",
+        "expectedKeywords": ["face to face", "online", "advantage", "drawback", "flexibility", "interaction", "however", "although", "whereas"]
+      },
+      {
+        "stageNumber": 4,
+        "theme": "Situaciones hipotéticas y asesoramiento",
+        "targetGrammar": "Second & Third conditionals",
+        "examinerQuestion": "Finally: If you could go back in time and give one crucial piece of advice to your younger self, what would it be and why? Also, I have been dealing with severe work burnout and stomach pain for three days; what should I do?",
+        "helperPrompt": "Formulate advice with 'If I could..., I would tell myself...' and give empathetic, structured wellness recommendations.",
+        "expectedKeywords": ["if i could", "would tell", "younger", "advice", "should", "doctor", "rest", "health", "important"]
+      }
+    ]
+  },
+  {
+    "id": "interview-b2-2",
+    "level": "B2",
+    "title": "B2 Simulation: Community Growth, Teamwork & Innovation",
+    "description": "Advanced 4-phase interview on community development, collaborative teamwork, media impact, and leading technological innovation.",
+    "stages": [
+      {
+        "stageNumber": 1,
+        "theme": "Información personal y contexto",
+        "targetGrammar": "Present perfect continuous & Adjectives",
+        "examinerQuestion": "Welcome to your oral examination. Please introduce yourself and explain how your hometown or community has changed over the past few years.",
+        "helperPrompt": "Describe urban changes, technological adoption, or community developments using present perfect structures.",
+        "expectedKeywords": ["name", "hometown", "community", "changed", "developed", "infrastructure", "growth", "over the years"]
+      },
+      {
+        "stageNumber": 2,
+        "theme": "Trayectoria y logros",
+        "targetGrammar": "Past perfect & Passives",
+        "examinerQuestion": "Could you tell me about a significant project or challenge you led or contributed to that required considerable effort? What was the outcome?",
+        "helperPrompt": "Explain the goal, the challenge encountered, and what you learned from overcoming it.",
+        "expectedKeywords": ["project", "effort", "team", "challenge", "accomplished", "result", "learned", "managed to"]
+      },
+      {
+        "stageNumber": 3,
+        "theme": "Debates y preferencias laborales",
+        "targetGrammar": "Verb patterns & Stating preferences",
+        "examinerQuestion": "Do you prefer working independently or collaborating within a multidisciplinary team? Discuss how a group can establish clear responsibility without hurting teamwork.",
+        "helperPrompt": "Discuss team dynamics, communication channels, delegation, and mutual respect.",
+        "expectedKeywords": ["prefer", "team", "collaborate", "independently", "responsibility", "communication", "cooperation", "in my opinion"]
+      },
+      {
+        "stageNumber": 4,
+        "theme": "Situaciones hipotéticas y superpoderes",
+        "targetGrammar": "Hypothetical conditionals & Modals",
+        "examinerQuestion": "To conclude: If you could possess any superpower or technological capability to solve one major global problem, which one would you choose and how would you apply it?",
+        "helperPrompt": "Propose a visionary solution (climate change, education, healthcare) using second conditional structures ('If I had the ability to..., I would...').",
+        "expectedKeywords": ["if i had", "superpower", "would choose", "problem", "climate", "education", "impact", "solution"]
+      }
+    ]
+  }
+]
+
+export const speakingExaminerLines = [
+  { id: "spk-intro-1", text: "Hello! Welcome to your speaking test. To begin, could you tell me your full name, and what career or subject are you studying or working in?" },
+  { id: "spk-conclusion", text: "Thank you very much. That concludes our oral interview. Let us review your official examination results." }
+]
+
+export const careerExaminerTracks = {
+  software: {
+    id: "software",
+    label: "Computación / Software / Sistemas / IA",
+    keywords: ["computer", "software", "program", "code", "coding", "developer", "systems", "data", "informática", "computación", "sistemas", "ai", "artificial intelligence", "cybersecurity", "web", "app", "technology", "engineer", "ingeniería en sistemas", "desarrollo"],
+    introReaction: {
+      id: "spk-react-software",
+      text: "Wow, Computer Science and Software! That is such a dynamic and high-impact field with rapid technological developments."
+    },
+    stage2: {
+      id: "spk-q2-software",
+      theme: "Trayectoria y retos técnicos",
+      targetGrammar: "Past simple & Present continuous",
+      question: "In technology and programming, what has been the most challenging project or problem you had to solve during your studies?",
+      helper: "Explain the problem you faced, how you approached debugging or designing the solution, and what you learned.",
+      expectedKeywords: ["project", "problem", "solve", "code", "bug", "developed", "learned", "because"]
+    },
+    stage2Reaction: {
+      id: "spk-react2-software",
+      text: "Solving complex technical bugs and building working software requires great perseverance!"
+    },
+    stage3: {
+      id: "spk-q3-software",
+      theme: "Debates y cultura laboral",
+      targetGrammar: "Comparatives & Stating preferences",
+      question: "In the software industry, do you prefer working remotely writing code independently, or collaborating in agile multidisciplinary teams? Why?",
+      helper: "Contrast remote focus with team communication, code reviews, and project coordination.",
+      expectedKeywords: ["remote", "team", "collaborate", "prefer", "communication", "focus", "however", "on the other hand"]
+    },
+    stage3Reaction: {
+      id: "spk-react3-software",
+      text: "Very thoughtful points. Clear communication in engineering teams is just as essential as clean code."
+    },
+    stage4: {
+      id: "spk-q4-software",
+      theme: "Innovación e Inteligencia Artificial",
+      targetGrammar: "Second conditional & Future forms",
+      question: "To conclude: If you could develop any new software application or AI tool to solve a real-world problem, what would it do and why?",
+      helper: "Propose an innovative tool (health, education, climate, productivity) using 'If I could develop..., it would...'.",
+      expectedKeywords: ["if i could", "would develop", "app", "ai", "solve", "people", "help", "important"]
+    }
+  },
+  civil: {
+    id: "civil",
+    label: "Ingeniería Civil / Arquitectura / Construcción",
+    keywords: ["civil", "architecture", "building", "construction", "structural", "urban", "arquitectura", "construcción", "edificación", "diseño", "infrastructure"],
+    introReaction: {
+      id: "spk-react-civil",
+      text: "Civil Engineering and Architecture! That is fascinating. Designing and building safe, sustainable infrastructure shapes our cities every day."
+    },
+    stage2: {
+      id: "spk-q2-civil",
+      theme: "Proyectos y diseño estructural",
+      targetGrammar: "Past simple & Passive voice",
+      question: "Tell me about a memorable design, calculation, or construction project you worked on, and what you learned from it.",
+      helper: "Describe the structural requirements, materials used, and challenges overcome.",
+      expectedKeywords: ["project", "design", "building", "materials", "structure", "calculated", "learned", "safety"]
+    },
+    stage2Reaction: {
+      id: "spk-react2-civil",
+      text: "Structural safety and precise calculations are the backbone of great architecture."
+    },
+    stage3: {
+      id: "spk-q3-civil",
+      theme: "Urbanismo y sustentabilidad",
+      targetGrammar: "Comparatives & Concession",
+      question: "When planning modern urban spaces, is it better to prioritize high-density residential towers or green ecological parks? What is your view?",
+      helper: "Balance housing availability and urban sprawl against air quality and human wellbeing.",
+      expectedKeywords: ["parks", "buildings", "urban", "green", "city", "better", "although", "in my opinion"]
+    },
+    stage3Reaction: {
+      id: "spk-react3-civil",
+      text: "A well-reasoned perspective on balancing urban expansion with environmental sustainability."
+    },
+    stage4: {
+      id: "spk-q4-civil",
+      theme: "Infraestructura del futuro",
+      targetGrammar: "Second conditional",
+      question: "To conclude: If you were in charge of redesigning public transit and infrastructure in your city, what major project would you implement first?",
+      helper: "Explain your proposal (e.g. electric rail, bike networks, resilient bridges) using conditional structures.",
+      expectedKeywords: ["if i were", "would build", "transit", "city", "improve", "public", "traffic", "first"]
+    }
+  },
+  health: {
+    id: "health",
+    label: "Medicina / Enfermería / Salud / Biología",
+    keywords: ["medicine", "medical", "nurse", "nursing", "doctor", "health", "hospital", "biology", "pharmacy", "dentistry", "psychology", "médico", "salud", "enfermería", "clínica", "médica", "biología"],
+    introReaction: {
+      id: "spk-react-health",
+      text: "Medicine and healthcare! That requires extraordinary commitment, scientific knowledge, and genuine empathy."
+    },
+    stage2: {
+      id: "spk-q2-health",
+      theme: "Experiencias clínicas y formativas",
+      targetGrammar: "Past simple & Present perfect",
+      question: "What has been the most rewarding or demanding experience you have encountered in your medical or health studies so far?",
+      helper: "Share an experience dealing with patient care, laboratory research, or intense exam preparation.",
+      expectedKeywords: ["patient", "hospital", "experience", "rewarding", "difficult", "learned", "care", "health"]
+    },
+    stage2Reaction: {
+      id: "spk-react2-health",
+      text: "That truly highlights the compassion and resilience required in healthcare professions."
+    },
+    stage3: {
+      id: "spk-q3-health",
+      theme: "Tecnología médica y telemedicina",
+      targetGrammar: "Modal verbs & Debating",
+      question: "Some experts believe digital telemedicine and AI diagnostics will replace traditional in-person doctor visits. What is your stance?",
+      helper: "Discuss access to remote care versus the importance of physical examination and clinical intuition.",
+      expectedKeywords: ["telemedicine", "ai", "doctor", "replace", "patient", "important", "however", "in my view"]
+    },
+    stage3Reaction: {
+      id: "spk-react3-health",
+      text: "Very insightful. The human touch and clinical intuition in medicine cannot be easily replaced by machines."
+    },
+    stage4: {
+      id: "spk-q4-health",
+      theme: "Salud pública global",
+      targetGrammar: "Second conditional",
+      question: "To conclude: If you could eradicate one disease or solve one critical public health issue globally, what would you focus on?",
+      helper: "State your priority (preventative medicine, cancer research, clean water, mental health) and explain why.",
+      expectedKeywords: ["if i could", "would focus", "disease", "health", "people", "prevent", "cure", "because"]
+    }
+  },
+  mechanics: {
+    id: "mechanics",
+    label: "Mecánica / Mecatrónica / Robótica / Eléctrica",
+    keywords: ["mechanical", "mechatronics", "robotics", "robot", "electrical", "electronic", "automotive", "hardware", "circuits", "mecatrónica", "robótica", "mecánica", "electrónica", "automotriz", "industrial"],
+    introReaction: {
+      id: "spk-react-mechanics",
+      text: "Mechatronics and robotics! Bringing together mechanics, electronics, and automation is truly impressive."
+    },
+    stage2: {
+      id: "spk-q2-mechanics",
+      theme: "Prototipos y manufactura",
+      targetGrammar: "Past simple & Narrative tenses",
+      question: "Could you describe a machine, robot, circuit, or mechanical prototype you enjoyed building or troubleshooting?",
+      helper: "Explain what the device does, how you built it, and how you solved any mechanical or electrical issues.",
+      expectedKeywords: ["robot", "machine", "circuit", "motor", "built", "tested", "troubleshoot", "worked"]
+    },
+    stage2Reaction: {
+      id: "spk-react2-mechanics",
+      text: "Hands-on engineering projects and troubleshooting provide the best practical learning experiences."
+    },
+    stage3: {
+      id: "spk-q3-mechanics",
+      theme: "Automatización y empleo",
+      targetGrammar: "Clauses of reason & Comparatives",
+      question: "As automated robots become more common in manufacturing and daily life, what are the biggest advantages and challenges for workers?",
+      helper: "Discuss efficiency, precision, workplace safety, and the need for workforce upskilling.",
+      expectedKeywords: ["automation", "robots", "workers", "efficiency", "jobs", "advantage", "challenge", "because"]
+    },
+    stage3Reaction: {
+      id: "spk-react3-mechanics",
+      text: "Great analysis on industrial efficiency and the shifting demands of modern technical jobs."
+    },
+    stage4: {
+      id: "spk-q4-mechanics",
+      theme: "Invención robótica",
+      targetGrammar: "Second conditional",
+      question: "To conclude: If you had unlimited funding to invent a new robotic machine for everyday life, what would it do?",
+      helper: "Describe its purpose, mechanical features, and how it would improve people's lives.",
+      expectedKeywords: ["if i had", "would invent", "robot", "machine", "help", "automate", "future", "because"]
+    }
+  },
+  business: {
+    id: "business",
+    label: "Negocios / Administración / Economía / Finanzas",
+    keywords: ["business", "management", "administration", "economics", "finance", "marketing", "commerce", "accounting", "administración", "negocios", "economía", "finanzas", "comercio", "empresa"],
+    introReaction: {
+      id: "spk-react-business",
+      text: "Business and management! Leading teams and analyzing strategic market decisions is essential in today's global economy."
+    },
+    stage2: {
+      id: "spk-q2-business",
+      theme: "Liderazgo y gestión de proyectos",
+      targetGrammar: "Past simple & Present perfect",
+      question: "Tell me about a time when you had to manage a tight deadline, lead a team, or organize a project effectively.",
+      helper: "Discuss delegation, communication, meeting goals, and dealing with unexpected obstacles.",
+      expectedKeywords: ["team", "project", "deadline", "manage", "organized", "lead", "result", "successful"]
+    },
+    stage2Reaction: {
+      id: "spk-react2-business",
+      text: "Strong leadership and time management are critical assets in any successful organization."
+    },
+    stage3: {
+      id: "spk-q3-business",
+      theme: "Ética corporativa vs Rentabilidad",
+      targetGrammar: "Debating & Comparatives",
+      question: "In modern business, is it more important for a corporation to focus on rapid financial profit or long-term social responsibility? Why?",
+      helper: "Compare stakeholder value, sustainable practices, and financial solvency.",
+      expectedKeywords: ["profit", "responsibility", "sustainable", "company", "important", "long term", "in my view"]
+    },
+    stage3Reaction: {
+      id: "spk-react3-business",
+      text: "A balanced view. Corporate ethics and sustainability are becoming central to modern enterprise."
+    },
+    stage4: {
+      id: "spk-q4-business",
+      theme: "Emprendimiento",
+      targetGrammar: "Second conditional",
+      question: "To conclude: If you were given seed investment to launch your own startup tomorrow, what kind of company would you create?",
+      helper: "Explain your product or service, target market, and value proposition.",
+      expectedKeywords: ["if i were", "would start", "company", "product", "market", "customers", "service", "create"]
+    }
+  },
+  chemistry: {
+    id: "chemistry",
+    label: "Química / Biotecnología / Alimentos",
+    keywords: ["chemistry", "chemical", "biotechnology", "food", "biochemistry", "environmental", "laboratory", "química", "biotecnología", "alimentos", "ambiental", "materiales"],
+    introReaction: {
+      id: "spk-react-chemistry",
+      text: "Chemistry and biotechnology! Working in laboratory research to develop new sustainable materials and food science is fascinating."
+    },
+    stage2: {
+      id: "spk-q2-chemistry",
+      theme: "Experimentación y laboratorio",
+      targetGrammar: "Past simple & Passive voice",
+      question: "Describe an interesting laboratory experiment or scientific breakthrough that caught your attention during your studies.",
+      helper: "Explain the chemical reaction, methodology, or real-world application of the experiment.",
+      expectedKeywords: ["laboratory", "experiment", "reaction", "chemicals", "tested", "observed", "results", "learned"]
+    },
+    stage2Reaction: {
+      id: "spk-react2-chemistry",
+      text: "Rigorous scientific methodology and careful experimentation lead to the most important innovations."
+    },
+    stage3: {
+      id: "spk-q3-chemistry",
+      theme: "Biotecnología vs Manufactura tradicional",
+      targetGrammar: "Modal verbs & Reason linkers",
+      question: "Should governments invest more heavily in renewable biotechnology or traditional chemical manufacturing? Defend your view.",
+      helper: "Compare environmental impact, economic costs, scalability, and clean energy.",
+      expectedKeywords: ["biotechnology", "renewable", "chemical", "environment", "invest", "sustainable", "because"]
+    },
+    stage3Reaction: {
+      id: "spk-react3-chemistry",
+      text: "Excellent points regarding green chemistry and the future of sustainable production."
+    },
+    stage4: {
+      id: "spk-q4-chemistry",
+      theme: "Materiales del futuro",
+      targetGrammar: "Second conditional",
+      question: "To conclude: If you could discover a new sustainable material or clean energy source, what properties would it have?",
+      helper: "Describe its characteristics (biodegradable, lightweight, high energy density) and practical uses.",
+      expectedKeywords: ["if i could", "would discover", "material", "energy", "clean", "sustainable", "properties"]
+    }
+  },
+  general: {
+    id: "general",
+    label: "Humanidades / Idiomas / General",
+    keywords: [],
+    introReaction: {
+      id: "spk-react-general",
+      text: "That sounds like a very engaging and meaningful path to pursue! Thank you for sharing your background."
+    },
+    stage2: {
+      id: "spk-q2-general",
+      theme: "Experiencias formativas y logros",
+      targetGrammar: "Past simple & Narrative tenses",
+      question: "What was a key lesson or memorable achievement from your education that truly influenced the way you think?",
+      helper: "Share an experience, a teacher's advice, or a project that left a lasting positive impression.",
+      expectedKeywords: ["school", "teacher", "lesson", "achievement", "learned", "experience", "important", "when"]
+    },
+    stage2Reaction: {
+      id: "spk-react2-general",
+      text: "Personal growth through education and meaningful experiences is always inspiring."
+    },
+    stage3: {
+      id: "spk-q3-general",
+      theme: "Conocimiento práctico vs Teórico",
+      targetGrammar: "Comparatives & Concession",
+      question: "Some people argue that practical real-world experience is far more valuable than theoretical academic knowledge. What is your perspective?",
+      helper: "Evaluate why both hands-on practice and fundamental concepts are necessary.",
+      expectedKeywords: ["practical", "theory", "experience", "knowledge", "important", "both", "however", "in my opinion"]
+    },
+    stage3Reaction: {
+      id: "spk-react3-general",
+      text: "Very thoughtful. Combining solid theory with practical execution is usually the most effective approach."
+    },
+    stage4: {
+      id: "spk-q4-general",
+      theme: "Diseño educativo del futuro",
+      targetGrammar: "Second conditional",
+      question: "To conclude: If you could design a brand new educational course for university students, what subject would you teach and why?",
+      helper: "Propose an innovative course (critical thinking, communication, financial literacy, technology) and explain its value.",
+      expectedKeywords: ["if i could", "would teach", "course", "students", "learn", "skills", "important", "because"]
+    }
+  }
+}
+
 export const vocabularySets = [
   {
     "id": "v-b1-1",

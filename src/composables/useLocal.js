@@ -41,6 +41,7 @@ export function exportData() {
     examAnswers: readJSON('nahui-exam-answers', {}),
     progress: readJSON('nahui-progress', {}),
     writing: readJSON('nahui-writing', {}),
+    speaking: readJSON('nahui-speaking', {}),
     voiceUS: localStorage.getItem('nahui-voice-en-US') || '',
     voiceGB: localStorage.getItem('nahui-voice-en-GB') || ''
   }
@@ -57,6 +58,7 @@ export async function importData(file) {
   if (![1, 2].includes(obj?.schema)) throw new Error('Respaldo incompatible')
   if (obj.settings && typeof obj.settings === 'object') localStorage.setItem('nahui-settings', JSON.stringify(obj.settings))
   if (obj.writing && typeof obj.writing === 'object') localStorage.setItem('nahui-writing', JSON.stringify(obj.writing))
+  if (obj.speaking && typeof obj.speaking === 'object') localStorage.setItem('nahui-speaking', JSON.stringify(obj.speaking))
   if (obj.progress && typeof obj.progress === 'object') localStorage.setItem('nahui-progress', JSON.stringify(obj.progress))
   if (obj.schema >= 2) {
     if (obj.examAnswers && typeof obj.examAnswers === 'object') localStorage.setItem('nahui-exam-answers', JSON.stringify(obj.examAnswers))
